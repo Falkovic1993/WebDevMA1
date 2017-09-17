@@ -1,1 +1,1 @@
-[{"id":"59be36c9858b5","name":"Emil","lastname":"Falk","email":"Knudsen","password":"falken11"},{"id":"59be372c8e7ed","name":"HEHE","lastname":"Dilolooo","email":"a@a.com","password":"CarolaroBaro"}]
+[{"id":"59be3e1515706","name":"emil","lastname":"falk","email":"Emil93falk@hotmail.com","password":"1234"},{"id":"59be40782aaae","name":"lasse","lastname":"falk","email":"lasse@lasse.dk","password":"1212"},{"id":"59be4080b91f1","name":"Mads","lastname":"falk","email":"@.dk","password":"falk"}]

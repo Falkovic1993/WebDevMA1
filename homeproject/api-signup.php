@@ -20,8 +20,8 @@
 	$sNewUsers = json_encode($jOldUsers);
 	file_put_contents('data-users.txt', $sNewUsers);
 
-	echo $sNewUsers;
-
+	$response = "User is added";
+	echo $response;
 
 
 

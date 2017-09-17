@@ -40,8 +40,8 @@ console.log("It's working!");
 			var ajax = new XMLHttpRequest();
 			ajax.onreadystatechange = function() {
 				if(this.readyState == 4 && this.status == 200) {
-				  	//var sDataFromServer = JSON.parse(this.responseText);
-         			//console.log("Response: ",sDataFromServer);
+				  	var sDataFromServer = this.responseText;
+         			console.log("Response: ",sDataFromServer);
          			
 				
 
@@ -63,7 +63,7 @@ console.log("It's working!");
 		ajax.onreadystatechange = function() {
 
 			if(this.readyState == 4 && this.status == 200) {
-			var jDataFromServer = JSON.parse( this.responseText );
+			var jDataFromServer = this.responseText;
 			console.log(jDataFromServer);
 			btnLogOut.style.display = "flex";
 
