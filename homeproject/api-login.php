@@ -3,14 +3,11 @@
 	// START SESSION
 	session_start();
 
-
 	// FETCH DATA FROM OUR LOGIN FORM 
-
 	$sUserName = $_POST['txtUserName'];
 	$sUserPassword = $_POST['txtUserPassword'];
 
 	// GET USER DATA FROM OUR DATA FILE. 
-
 	$sUsers = file_get_contents('data-users.txt');
 	$aUsers = json_decode($sUsers);
 	//var_dump($aUsers);

@@ -17,6 +17,7 @@
 	// Push the new users to the array
 	array_push($jOldUsers, $jNewUser);
 
+	// ENCODE OUR ARRAY SO WE CAN SAVE IT AS JSON
 	$sNewUsers = json_encode($jOldUsers);
 	file_put_contents('data-users.txt', $sNewUsers);
 
