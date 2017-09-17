@@ -60,6 +60,15 @@ body {
 	background-color:yellow;
 }
 
+#profilePage {
+	display: none;
+	position: absolute;
+	justify-content: center;
+	width: 100vw;
+	height: 100vh;
+	background-color:yellow;
+}
+
 .container {
 	display: flex;
 	flex-wrap: wrap;
@@ -112,10 +121,6 @@ body {
 form input {
 	margin-bottom: 15px;
 	height: 30px;
-}
-
-#btnLogOut {
-	display:none;
 }
 
 .item {
@@ -172,4 +177,12 @@ form input {
 #productPage h3 {
 	text-align: center;
 	padding-top: 15px;
+}
+
+#profilePage h3 {
+	margin-top:50px;
+}
+
+.txtProfileInfo {
+	padding:25px 0px;
 }

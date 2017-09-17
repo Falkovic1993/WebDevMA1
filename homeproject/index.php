@@ -18,7 +18,7 @@
 </head>
 
 <body>
-	
+
 		<nav class="navigation">
 				<span id="LogoName">Mandatory Assignment</span>
 				<button id="btnFrontpage" class="btnMenu" data-showThisPage="frontPage">Frontpage</button>
@@ -29,6 +29,11 @@
 					}; ?>
 				<button id="btnUserPage" class="btnMenu" data-showThisPage="userPage">User</button>
 				<button id="btnProductPage" class="btnMenu" data-showThisPage="productPage">Product</button>
+				<?php 
+					if ( isset($_SESSION['jUser']) ) {
+						$menuLogOut = "<button type='button' class='btnLogOut'>Log Out</button>";
+						echo $menuLogOut;
+					}; ?>
 		</nav>
 
 	<div class="wrapper">
@@ -47,7 +52,12 @@
 			<input type="text" name="txtUserName" placeholder="Name"></input>
 			<input type="text" name="txtUserPassword" placeholder="Password"></input>
 			<button type="button" id="btnLogin">Login</button>
-			<button type="button" id="btnLogOut">Logout</button>
+			<?php 
+					if ( isset($_SESSION['jUser']) ) {
+						$btnLogOut = "<button type='button' class='btnLogOut'>Log Out</button>";
+						echo $btnLogOut;
+					}; ?>
+
 			<button type="button" id="btnSignUpForm">Sign Up</button>
 		</form>
 
@@ -62,6 +72,30 @@
 				<button type="button" id="btnUserSU">Sign Up!</button>
 		</form>
 	</div>
+
+	</div>
+
+	<div id="profilePage" class="page">
+
+		<div class="boxProfilPage">
+			<h3>Profile Page</h3>
+			<?php
+				if ( isset($_SESSION['jUser']) ) {
+					$sUserId = $_SESSION['jUserId'];
+					$sUserName = $_SESSION['jUserName'];
+					$sUserLastName = $_SESSION['jUserLastName'];
+					$sUserEmail = $_SESSION['jUserEmail'];
+					$sUserPassword = $_SESSION['jUserPassword'];
+				
+		};	?>
+		<h4 class="txtProfileInfo">User ID: <?php  echo $sUserId; ?></h4>
+		<h4 class="txtProfileInfo">Name: <?php  echo $sUserName; ?></h4>
+		<h4 class="txtProfileInfo">Lastname: <?php  echo $sUserLastName; ?></h4>
+		<h4 class="txtProfileInfo">Email: <?php  echo $sUserEmail; ?></h4>
+		<h4 class="txtProfileInfo">Password: <?php  echo $sUserPassword; ?></h4>
+
+		
+		</div>
 
 	</div>
 

@@ -42,7 +42,6 @@ console.log("It's working!");
 				if(this.readyState == 4 && this.status == 200) {
 				  	var sDataFromServer = this.responseText;
          			console.log("Response: ",sDataFromServer);
-         			
 				}
 			}
 			ajax.open( "POST", "api-signup.php", true );
@@ -63,9 +62,8 @@ console.log("It's working!");
 			if(this.readyState == 4 && this.status == 200) {
 			var jDataFromServer = this.responseText;
 			console.log(jDataFromServer);
-			btnLogOut.style.display = "flex";
 
-			}
+			};
 		}
 		ajax.open( "POST", "api-login.php", true );
 	    var jFrmLogin = new FormData(frmLogin);
@@ -73,18 +71,21 @@ console.log("It's working!");
 	});
 
 // LOGOUT OF THE SITE 
-
-	btnLogOut.addEventListener("click", function(){
-		console.log("LogOut")
+	var btnLogOut = document.getElementsByClassName('btnLogOut');
+	for (i = 0; i < btnLogOut.length; i++) {
+	//console.log(LogOut);
+	btnLogOut[i].addEventListener("click", function(){
+		console.log("LogOut");
 
 		var ajax = new XMLHttpRequest();
 		ajax.onreadystatechange = function() {
 
 			if (this.readyState == 4 && this.status == 200) {
 				window.location.reload();
-			}
-		}
+			};
+		};
 		ajax.open( "GET", "api-logout.php", true);
 		ajax.send();
 
-	})
+	});
+}
