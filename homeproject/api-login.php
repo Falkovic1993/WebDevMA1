@@ -20,18 +20,21 @@
 		$sCorrectUserName = $aUsers[$i]->name;
 		//echo $sCorrectUserName;
 		$sCorrectUserPassword = $aUsers[$i]->password;
-	}
 
-	// IF OUR DATA FROM THE DATA FILE IS SAME WITH THE USER INPUT LET THE USER LOGIN. 
+		// IF OUR DATA FROM THE DATA FILE IS SAME WITH THE USER INPUT LET THE USER LOGIN. 
 		if ( $sCorrectUserName == $sUserName && $sCorrectUserPassword == $sUserPassword) {
 
 			$_SESSION['jUser'] = $sCorrectUserName;
 			$sResponse = '{"login":"yes"}';
+
 			echo $sResponse;
 			
 			// WE USE EXIT SO WE DONT NEED TO USE ELSE; SINCE IF WE RUN THIS IT WILL STOP RIGHT AFTER EXIT. 
 			exit;
 	};
+	}
+
+	
 
 	$sResponse = '{"login":"Dont excist"}';
 	echo $sResponse;

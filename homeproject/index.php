@@ -36,7 +36,8 @@
 		<?php
 
 			if ( isset($_SESSION['jUser']) ) {
-			echo jUser.userName;
+			$sWelcome = "Welcome" . ' ' . $_SESSION['jUser'];
+			echo $sWelcome;
 	};
 
 		?>
