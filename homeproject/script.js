@@ -40,17 +40,14 @@ console.log("It's working!");
 			var ajax = new XMLHttpRequest();
 			ajax.onreadystatechange = function() {
 				if(this.readyState == 4 && this.status == 200) {
-				  	var sDataFromServer = JSON.parse(this.responseText);
+				  	var sDataFromServer = this.responseText;
          			console.log("Response: ",sDataFromServer);
-         			var $name = txtUserNameSU.value; 
-         			console.log(name);
-				
-
+         			
 				}
 			}
 			ajax.open( "POST", "api-signup.php", true );
-		    var jFrmLogin = new FormData(frmSignUpUser);
-		    ajax.send(frmSignUpUser);
+		    var jFrmSignUpUser = new FormData(frmSignUpUser);
+		    ajax.send(jFrmSignUpUser);
 		});
 
 	
@@ -64,7 +61,7 @@ console.log("It's working!");
 		ajax.onreadystatechange = function() {
 
 			if(this.readyState == 4 && this.status == 200) {
-			var jDataFromServer = JSON.parse( this.responseText );
+			var jDataFromServer = this.responseText;
 			console.log(jDataFromServer);
 			btnLogOut.style.display = "flex";
 

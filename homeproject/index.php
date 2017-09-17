@@ -1,7 +1,6 @@
 <?php
 
 	session_start();
-
 	if ( isset($_SESSION['jUser']) ) {
 		echo "hehe";
 	};
@@ -13,18 +12,21 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 	<title>Mandatory Assignment</title>
-
 	<link rel="stylesheet" type="text/css" href="style.css">
 
 </head>
 
 <body>
-
+	
 		<nav class="navigation">
 				<span id="LogoName">Mandatory Assignment</span>
 				<button id="btnFrontpage" class="btnMenu" data-showThisPage="frontPage">Frontpage</button>
+				<?php 
+					if ( isset($_SESSION['jUser']) ) {
+						$profilePage = "<button id='btnProfilepage' class='btnMenu' data-showThisPage='profilePage'>Profil</button>";
+						echo $profilePage;
+					}; ?>
 				<button id="btnUserPage" class="btnMenu" data-showThisPage="userPage">User</button>
 				<button id="btnProductPage" class="btnMenu" data-showThisPage="productPage">Product</button>
 		</nav>
@@ -36,9 +38,9 @@
 		<?php
 
 			if ( isset($_SESSION['jUser']) ) {
-			echo jUser.userName;
+			$sWelcome = "Welcome" . ' ' . $_SESSION['jUser'];
+			echo $sWelcome;
 	};
-
 		?>
 
 		<form id="frmLogin">
@@ -51,13 +53,12 @@
 
 
 	<div id="SignUpBox">
-		<form id="frmSignUpUser">
-	
+		<form id="frmSignUpUser" method="POST">
 				<button type="button" id="closeSignUp">×</button>
-				<input type="text" name="txtUserNameSU" placeholder="Name"></input>
-				<input type="text" name="txtUserLastnameSU" placeholder="Lastname"></input>
-				<input type="email" name="txtUserEmailSU" placeholder="Email"></input>
-				<input type="password" name="txtUserPasswordSU" placeholder="Password"></input>
+				<input type="text" id="txtUserNameSignUp" name="txtUserNameSignUp" placeholder="Name"></input>
+				<input type="text"  id="txtUserLastnameSU" name="txtUserLastnameSU" placeholder="Lastname"></input>
+				<input type="email"  id="txtUserEmailSU" name="txtUserEmailSU" placeholder="Email"></input>
+				<input type="password"  id="txtUserPasswordSU" name="txtUserPasswordSU" placeholder="Password"></input>
 				<button type="button" id="btnUserSU">Sign Up!</button>
 		</form>
 	</div>
@@ -72,10 +73,10 @@
 
 
 			<form id="userForm">
-				<input type="text" id="userName" name="userName" placeholder="Name">
-				<input type="text" id="userLastName" name="userLastName" placeholder="Lastname">
-				<input type="text" id="userEmail" name="userEmail" placeholder="Email">
-				<input type="file" id="userImage" name="userImage">
+				<input type="text" id="userName" name="userName" placeholder="Name"></input>
+				<input type="text" id="userLastName" name="userLastName" placeholder="Lastname"></input>
+				<input type="text" id="userEmail" name="userEmail" placeholder="Email"></input>
+				<input type="file" id="userImage" name="userImage"></input>
 				<button type="button" id="btnSaveUser">Save Product</button>
 			</form>
 
