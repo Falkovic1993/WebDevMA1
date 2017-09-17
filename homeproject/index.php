@@ -1,7 +1,6 @@
 <?php
 
 	session_start();
-
 	if ( isset($_SESSION['jUser']) ) {
 		echo "hehe";
 	};
@@ -13,15 +12,13 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 	<title>Mandatory Assignment</title>
-
 	<link rel="stylesheet" type="text/css" href="style.css">
 
 </head>
 
 <body>
-
+	
 		<nav class="navigation">
 				<span id="LogoName">Mandatory Assignment</span>
 				<button id="btnFrontpage" class="btnMenu" data-showThisPage="frontPage">Frontpage</button>
@@ -44,7 +41,6 @@
 			$sWelcome = "Welcome" . ' ' . $_SESSION['jUser'];
 			echo $sWelcome;
 	};
-
 		?>
 
 		<form id="frmLogin">
@@ -58,7 +54,6 @@
 
 	<div id="SignUpBox">
 		<form id="frmSignUpUser" method="POST">
-	
 				<button type="button" id="closeSignUp">×</button>
 				<input type="text" id="txtUserNameSignUp" name="txtUserNameSignUp" placeholder="Name"></input>
 				<input type="text"  id="txtUserLastnameSU" name="txtUserLastnameSU" placeholder="Lastname"></input>
