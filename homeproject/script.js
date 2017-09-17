@@ -49,20 +49,36 @@ console.log("It's working!");
 		    ajax.send(jFrmSignUpUser);
 		});
 
+// UPDATE USER INFORMATION
 	
+	btnUpdateUser.addEventListener("click", function() {
+		console.log("update");
+		var ajax = new XMLHttpRequest();
+		ajax.onreadystatechange = function() {
+
+			if(this.readyState == 4 && this.status == 200) {
+			
+			//window.location.reload();
+
+			};
+		}
+		ajax.open( "POST", "api-update-user.php", true );
+	    var jFrmUpdate = new FormData(frmUpdateUser);
+	    ajax.send(jFrmUpdate);
+
+	})
 
 // LOGIN TO THE SITE! 
 
 	btnLogin.addEventListener("click", function(){
-		console.log("Z")
-
+		//console.log("Z")
 		var ajax = new XMLHttpRequest();
 		ajax.onreadystatechange = function() {
 
 			if(this.readyState == 4 && this.status == 200) {
 			var jDataFromServer = this.responseText;
 			console.log(jDataFromServer);
-
+			window.location.reload();
 			};
 		}
 		ajax.open( "POST", "api-login.php", true );

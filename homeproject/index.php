@@ -43,7 +43,7 @@
 		<?php
 
 			if ( isset($_SESSION['jUser']) ) {
-			$sWelcome = "Welcome" . ' ' . $_SESSION['jUser'];
+			$sWelcome = "Welcome" . ' ' . $_SESSION['jUserName'];
 			echo $sWelcome;
 	};
 		?>
@@ -88,12 +88,14 @@
 					$sUserPassword = $_SESSION['jUserPassword'];
 				
 		};	?>
-		<h4 class="txtProfileInfo">User ID: <?php  echo $sUserId; ?></h4>
-		<h4 class="txtProfileInfo">Name: <?php  echo $sUserName; ?></h4>
-		<h4 class="txtProfileInfo">Lastname: <?php  echo $sUserLastName; ?></h4>
-		<h4 class="txtProfileInfo">Email: <?php  echo $sUserEmail; ?></h4>
-		<h4 class="txtProfileInfo">Password: <?php  echo $sUserPassword; ?></h4>
-
+			<form id="frmUpdateUser">
+				<h4 class="txtProfileInfo">User ID: <?php  echo $sUserId; ?></h4>
+				<h4 class="txtProfileInfo">Name: <?php  echo $sUserName; ?><input type="text" name="UpdateUserName"></h4>
+				<h4 class="txtProfileInfo">Lastname: <?php  echo $sUserLastName; ?><input type="text" name="UpdateUserLastName"></h4>
+				<h4 class="txtProfileInfo">Email: <?php  echo $sUserEmail; ?><input type="text" name="UpdateUserEmail"></h4>
+				<h4 class="txtProfileInfo">Password: <?php  echo $sUserPassword; ?><input type="text" name="UpdateUserPassword"></h4>
+				<button type="button" id="btnUpdateUser">Save information</button>
+			</form>
 		
 		</div>
 
