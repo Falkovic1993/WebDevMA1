@@ -26,15 +26,11 @@
 
 			$_SESSION['jUser'] = $sCorrectUserName;
 			$sResponse = '{"login":"yes"}';
-
 			echo $sResponse;
-			
 			// WE USE EXIT SO WE DONT NEED TO USE ELSE; SINCE IF WE RUN THIS IT WILL STOP RIGHT AFTER EXIT. 
 			exit;
 	};
 	}
-
-	
 
 	$sResponse = '{"login":"Dont excist"}';
 	echo $sResponse;

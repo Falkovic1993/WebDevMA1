@@ -25,6 +25,11 @@
 		<nav class="navigation">
 				<span id="LogoName">Mandatory Assignment</span>
 				<button id="btnFrontpage" class="btnMenu" data-showThisPage="frontPage">Frontpage</button>
+				<?php 
+					if ( isset($_SESSION['jUser']) ) {
+						$profilePage = "<button id='btnProfilepage' class='btnMenu' data-showThisPage='profilePage'>Profil</button>";
+						echo $profilePage;
+					}; ?>
 				<button id="btnUserPage" class="btnMenu" data-showThisPage="userPage">User</button>
 				<button id="btnProductPage" class="btnMenu" data-showThisPage="productPage">Product</button>
 		</nav>

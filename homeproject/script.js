@@ -43,8 +43,6 @@ console.log("It's working!");
 				  	var sDataFromServer = this.responseText;
          			console.log("Response: ",sDataFromServer);
          			
-				
-
 				}
 			}
 			ajax.open( "POST", "api-signup.php", true );
