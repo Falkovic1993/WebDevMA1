@@ -4,10 +4,10 @@
 
 	$jNewUser = json_decode('{}');
 	$jNewUser->id = uniqid();
-	$jNewUser->name = $_POST['txtUserNameSU'];
-	$jNewUser->lastname = $_POST['txtUserLastnameSU'];
-	$jNewUser->email = $_POST['txtUserEmailSU'];
-	$jNewUser->password = $_POST['txtUserPasswordSU'];
+	$jNewUser->name = $_POST['txtUserNameSignUp'] ?? '';
+	$jNewUser->lastname = $_POST['txtUserLastnameSU'] ?? '';
+	$jNewUser->email = $_POST['txtUserEmailSU'] ?? '';
+	$jNewUser->password = $_POST['txtUserPasswordSU'] ?? '';
 
 
 	// Get the old users from our data file and decode them into an array

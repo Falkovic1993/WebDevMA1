@@ -40,17 +40,16 @@ console.log("It's working!");
 			var ajax = new XMLHttpRequest();
 			ajax.onreadystatechange = function() {
 				if(this.readyState == 4 && this.status == 200) {
-				  	var sDataFromServer = JSON.parse(this.responseText);
-         			console.log("Response: ",sDataFromServer);
-         			var $name = txtUserNameSU.value; 
-         			console.log(name);
+				  	//var sDataFromServer = JSON.parse(this.responseText);
+         			//console.log("Response: ",sDataFromServer);
+         			
 				
 
 				}
 			}
 			ajax.open( "POST", "api-signup.php", true );
-		    var jFrmLogin = new FormData(frmSignUpUser);
-		    ajax.send(frmSignUpUser);
+		    var jFrmSignUpUser = new FormData(frmSignUpUser);
+		    ajax.send(jFrmSignUpUser);
 		});
 
 	

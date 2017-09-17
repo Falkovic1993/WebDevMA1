@@ -51,13 +51,13 @@
 
 
 	<div id="SignUpBox">
-		<form id="frmSignUpUser">
+		<form id="frmSignUpUser" method="POST">
 	
 				<button type="button" id="closeSignUp">×</button>
-				<input type="text" name="txtUserNameSU" placeholder="Name"></input>
-				<input type="text" name="txtUserLastnameSU" placeholder="Lastname"></input>
-				<input type="email" name="txtUserEmailSU" placeholder="Email"></input>
-				<input type="password" name="txtUserPasswordSU" placeholder="Password"></input>
+				<input type="text" id="txtUserNameSignUp" name="txtUserNameSignUp" placeholder="Name"></input>
+				<input type="text"  id="txtUserLastnameSU" name="txtUserLastnameSU" placeholder="Lastname"></input>
+				<input type="email"  id="txtUserEmailSU" name="txtUserEmailSU" placeholder="Email"></input>
+				<input type="password"  id="txtUserPasswordSU" name="txtUserPasswordSU" placeholder="Password"></input>
 				<button type="button" id="btnUserSU">Sign Up!</button>
 		</form>
 	</div>
@@ -72,10 +72,10 @@
 
 
 			<form id="userForm">
-				<input type="text" id="userName" name="userName" placeholder="Name">
-				<input type="text" id="userLastName" name="userLastName" placeholder="Lastname">
-				<input type="text" id="userEmail" name="userEmail" placeholder="Email">
-				<input type="file" id="userImage" name="userImage">
+				<input type="text" id="userName" name="userName" placeholder="Name"></input>
+				<input type="text" id="userLastName" name="userLastName" placeholder="Lastname"></input>
+				<input type="text" id="userEmail" name="userEmail" placeholder="Email"></input>
+				<input type="file" id="userImage" name="userImage"></input>
 				<button type="button" id="btnSaveUser">Save Product</button>
 			</form>
 
