@@ -57,8 +57,7 @@ console.log("It's working!");
 		ajax.onreadystatechange = function() {
 
 			if(this.readyState == 4 && this.status == 200) {
-			
-			//window.location.reload();
+			window.location.reload();
 
 			};
 		}

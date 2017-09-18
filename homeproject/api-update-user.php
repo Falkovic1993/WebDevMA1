@@ -9,18 +9,21 @@
 		//LOOP THROUGH OUR DATA AND CHECK IF WE CAN FIND A MATCH IN OUR ID. 
 		for ($i = 0; $i < count($aUsers); $i++) {
 			if ( $sUserId == $aUsers[$i]->id) {
-				echo "We got a match";
+				//IF OUR USERID IS SAME AS THE ONE IN DATA BASE WE*RE UPDATING THE INFO!
+				isset($_POST['UpdateUserName']) {
 				$aUsers[$i]->name = $_POST['UpdateUserName'] ?? '';
+				//UPDATING OUR SESSION DATA RIGHT AWAY.
+				$_SESSION['jUserName'] = $aUsers[$i]->name;
+			}
 			}
 		}
+		//EN"LISH" OUR CODE SO WE CAN SAVE IT IN OUR TXT FILE AGAIN. 
 		$jUsers = json_encode($aUsers);
 		file_put_contents('data-users.txt', $jUsers);
+
+		
 		
 	}
-
-
-
-
 
 
 echo $sUserId;

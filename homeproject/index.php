@@ -2,7 +2,8 @@
 
 	session_start();
 	if ( isset($_SESSION['jUser']) ) {
-		echo "hehe";
+
+		echo "heeehe";
 	};
 
 ?>
