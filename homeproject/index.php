@@ -119,9 +119,9 @@
 
 
 
-			<div class="userList">
+			<div id="userList">
 
-				<div class="user1">
+				<div class="user">
 					<h3>12334dHASBD</h3>
 					<p>Emil</p>
 					<p>Falk</p>
@@ -129,7 +129,7 @@
 					<button id="btnDeleteUser">Delete</button>
 				</div>
 
-				<div class="user1">
+				<div class="user">
 					<h3>12334dHASBD</h3>
 					<p>Emil</p>
 					<p>Falk</p>
@@ -137,7 +137,7 @@
 					<button id="btnDeleteUser">Delete</button>
 				</div>
 
-				<div class="user1">
+				<div class="user">
 					<h3>12334dHASBD</h3>
 					<p>Emil</p>
 					<p>Falk</p>

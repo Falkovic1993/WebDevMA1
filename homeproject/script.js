@@ -98,7 +98,34 @@ console.log("It's working!");
 
 	//SHOW USERS 
 	btnUserPage.addEventListener("click", function(){
-		console.log("Hello")
-		
+
+		var ajax = new XMLHttpRequest();
+		ajax.onreadystatechange = function() {
+			if (this.readyState == 4 && this.status == 200) {
+				var aUsers = JSON.parse(this.responseText);
+				//console.log(aUsers);
+				for ( i = 0 ; i < aUsers.length; i++) {
+					//console.log("hi");
+					var userId = aUsers[i].id;
+					var userName = aUsers[i].name;
+					var userLastName = aUsers[i].lastname;
+					var userEmail = aUsers[i].email;
+					var userPassword = aUsers[i].password;
+					console.log(userId, userName, userLastName, userEmail, userPassword);
+				};
+ 		 		var sUserId = "<h3>" + userId + "</h3>";
+				var sUserName = "<p>" + userName + "</p>";
+				var sUserLastName = "<p>" + userLastName + "</p>";
+				var sUserEmail = "<p>" + userEmail + "</p>";
+				var sUserPassword = "<p>" + userPassword + "</p>"; 
+				var sDivUserInfo = "<div class='user'>" + userId, userName, userLastName, userEmail, userPassword  "</div>";
+				userList.insertAdjacentHTML('beforeend', sDivUserInfo);
+				
+			
+			};
+		};
+		ajax.open( "GET", "api-show-user.php", true);
+		ajax.send();
+
 
 	});
