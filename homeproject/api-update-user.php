@@ -9,14 +9,32 @@
 		//LOOP THROUGH OUR DATA AND CHECK IF WE CAN FIND A MATCH IN OUR ID. 
 		for ($i = 0; $i < count($aUsers); $i++) {
 			if ( $sUserId == $aUsers[$i]->id) {
-				//IF OUR USERID IS SAME AS THE ONE IN DATA BASE WE*RE UPDATING THE INFO!
-				isset($_POST['UpdateUserName']) {
-				$aUsers[$i]->name = $_POST['UpdateUserName'] ?? '';
+				//IF OUR USERID IS SAME AS THE ONE IN DATA BASE WE*RE UPDATING THE INFO!												
 				//UPDATING OUR SESSION DATA RIGHT AWAY.
-				$_SESSION['jUserName'] = $aUsers[$i]->name;
-			}
+				if (empty($_POST['UpdateUserName'])) {
+				} else {
+					$aUsers[$i]->name = $_POST['UpdateUserName'] ?? '';
+					$_SESSION['jUserName'] = $aUsers[$i]->name;
+				}
+				if (empty($_POST['UpdateUserLastName'])) {
+				}else {
+					$aUsers[$i]->lastname = $_POST['UpdateUserLastName'] ?? '';
+					$_SESSION['jUserLastName'] = $aUsers[$i]->lastname;
+				}
+				if (empty($_POST['UpdateUserEmail'])) {
+				}else{
+					$aUsers[$i]->email = $_POST['UpdateUserEmail'] ?? '';
+					$_SESSION['jUserEmail'] = $aUsers[$i]->email;
+				}
+				if (empty($_POST['UpdateUserPassword'])) {
+				}else {
+					$aUsers[$i]->password = $_POST['UpdateUserPassword'] ?? '';
+					$_SESSION['jUserPassword'] = $aUsers[$i]->password;
+				}
+
 			}
 		}
+
 		//EN"LISH" OUR CODE SO WE CAN SAVE IT IN OUR TXT FILE AGAIN. 
 		$jUsers = json_encode($aUsers);
 		file_put_contents('data-users.txt', $jUsers);
