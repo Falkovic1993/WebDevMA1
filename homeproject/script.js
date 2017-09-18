@@ -2,7 +2,7 @@
 console.log("It's working!");
 
 
-//  NAVIGATION - 1 PAGE ONLY SETUP. 
+	//  NAVIGATION - 1 PAGE ONLY SETUP. 
 	var aBtnShowPage = document.getElementsByClassName('btnMenu');
 	var hidePage = document.getElementsByClassName('page')
 
@@ -18,22 +18,18 @@ console.log("It's working!");
 			});
 		};
 
-
-// SHOW THE SIGN UP FORM
-
+	// SHOW THE SIGN UP FORM
 	btnSignUpForm.addEventListener("click", function(){
 		console.log("X")
 		SignUpBox.style.display = "flex";
 	});
 
-// CLOSE THE SIGN UP FORM
-
+	// CLOSE THE SIGN UP FORM
 	closeSignUp.addEventListener("click", function(){
 		SignUpBox.style.display = "none";
 	})
 
-// SAVE THE USER INTO OUR DATA WHEN THEY SIGN UP 
-
+	// SAVE THE USER INTO OUR DATA WHEN THEY SIGN UP 
 	btnUserSU.addEventListener("click", function(){
 			console.log("X")
 
@@ -49,16 +45,13 @@ console.log("It's working!");
 		    ajax.send(jFrmSignUpUser);
 		});
 
-// UPDATE USER INFORMATION
-	
+	// UPDATE USER INFORMATION
 	btnUpdateUser.addEventListener("click", function() {
 		console.log("update");
 		var ajax = new XMLHttpRequest();
 		ajax.onreadystatechange = function() {
-
 			if(this.readyState == 4 && this.status == 200) {
 			window.location.reload();
-
 			};
 		}
 		ajax.open( "POST", "api-update-user.php", true );
@@ -67,8 +60,7 @@ console.log("It's working!");
 
 	})
 
-// LOGIN TO THE SITE! 
-
+	// LOGIN TO THE SITE! 
 	btnLogin.addEventListener("click", function(){
 		//console.log("Z")
 		var ajax = new XMLHttpRequest();
@@ -85,7 +77,7 @@ console.log("It's working!");
 	    ajax.send(jFrmLogin);
 	});
 
-// LOGOUT OF THE SITE 
+	// LOGOUT OF THE SITE 
 	var btnLogOut = document.getElementsByClassName('btnLogOut');
 	for (i = 0; i < btnLogOut.length; i++) {
 	//console.log(LogOut);
@@ -101,6 +93,12 @@ console.log("It's working!");
 		};
 		ajax.open( "GET", "api-logout.php", true);
 		ajax.send();
-
 	});
 }
+
+	//SHOW USERS 
+	btnUserPage.addEventListener("click", function(){
+		console.log("Hello")
+		
+
+	});

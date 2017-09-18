@@ -17,24 +17,22 @@
 					$_SESSION['jUserName'] = $aUsers[$i]->name;
 				}
 				if (empty($_POST['UpdateUserLastName'])) {
-				}else {
+				} else {
 					$aUsers[$i]->lastname = $_POST['UpdateUserLastName'] ?? '';
 					$_SESSION['jUserLastName'] = $aUsers[$i]->lastname;
 				}
 				if (empty($_POST['UpdateUserEmail'])) {
-				}else{
+				} else {
 					$aUsers[$i]->email = $_POST['UpdateUserEmail'] ?? '';
 					$_SESSION['jUserEmail'] = $aUsers[$i]->email;
 				}
 				if (empty($_POST['UpdateUserPassword'])) {
-				}else {
+				} else {
 					$aUsers[$i]->password = $_POST['UpdateUserPassword'] ?? '';
 					$_SESSION['jUserPassword'] = $aUsers[$i]->password;
 				}
-
 			}
 		}
-
 		//EN"LISH" OUR CODE SO WE CAN SAVE IT IN OUR TXT FILE AGAIN. 
 		$jUsers = json_encode($aUsers);
 		file_put_contents('data-users.txt', $jUsers);
