@@ -98,34 +98,31 @@ console.log("It's working!");
 
 	//SHOW USERS 
 	btnUserPage.addEventListener("click", function(){
-
 		var ajax = new XMLHttpRequest();
 		ajax.onreadystatechange = function() {
 			if (this.readyState == 4 && this.status == 200) {
 				var aUsers = JSON.parse(this.responseText);
 				//console.log(aUsers);
+				userList.innerHTML = "";
 				for ( i = 0 ; i < aUsers.length; i++) {
-					//console.log("hi");
+					//console.log("hi"); 
+					// GET THE USER DATA
 					var userId = aUsers[i].id;
 					var userName = aUsers[i].name;
 					var userLastName = aUsers[i].lastname;
 					var userEmail = aUsers[i].email;
 					var userPassword = aUsers[i].password;
 					console.log(userId, userName, userLastName, userEmail, userPassword);
+					var btnDeleteUser = "<button id="+userId+">Delete</button>";
+					//PUT THE USER DATA TOGETHER AND PUT IT INTO A DIV SO WE CAN SHOW IT.
+					sDivUserInfo = "<div class='user' id=" + userId + "><h3>" + userId +"</h3>" + userName + "<br>" + userLastName + "<br>" + userEmail + "<br>" + userPassword + "<br>" + btnDeleteUser + "</div>";
+					userList.insertAdjacentHTML('beforeend', sDivUserInfo);
 				};
- 		 		var sUserId = "<h3>" + userId + "</h3>";
-				var sUserName = "<p>" + userName + "</p>";
-				var sUserLastName = "<p>" + userLastName + "</p>";
-				var sUserEmail = "<p>" + userEmail + "</p>";
-				var sUserPassword = "<p>" + userPassword + "</p>"; 
-				var sDivUserInfo = "<div class='user'>" + userId, userName, userLastName, userEmail, userPassword  "</div>";
-				userList.insertAdjacentHTML('beforeend', sDivUserInfo);
-				
-			
 			};
 		};
 		ajax.open( "GET", "api-show-user.php", true);
 		ajax.send();
-
-
 	});
+
+	//DELETE A USER 
+	
