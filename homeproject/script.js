@@ -113,7 +113,7 @@ console.log("It's working!");
 					var userEmail = aUsers[i].email;
 					var userPassword = aUsers[i].password;
 					console.log(userId, userName, userLastName, userEmail, userPassword);
-					var btnDeleteUser = "<button id="+userId+">Delete</button>";
+					var btnDeleteUser = "<button type='button' class='btnDeleteUsers' data-userId="+userId+">Delete</button>";
 					//PUT THE USER DATA TOGETHER AND PUT IT INTO A DIV SO WE CAN SHOW IT.
 					sDivUserInfo = "<div class='user' id=" + userId + "><h3>" + userId +"</h3>" + userName + "<br>" + userLastName + "<br>" + userEmail + "<br>" + userPassword + "<br>" + btnDeleteUser + "</div>";
 					userList.insertAdjacentHTML('beforeend', sDivUserInfo);
@@ -125,4 +125,13 @@ console.log("It's working!");
 	});
 
 	//DELETE A USER 
-	
+	var btnDeleteUsers = document.getElementsByClassName("btnDeleteUsers");
+		for (i = 0; i < btnDeleteUsers.length; i++) {
+			console.log("a");
+		btnDeleteUsers.addEventListener("click", function(){
+			console.log("he");
+			var userId = this.dataset.userId;
+			console.log(userId);
+		});
+			
+		};
