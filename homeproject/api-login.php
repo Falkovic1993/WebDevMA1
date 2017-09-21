@@ -16,10 +16,10 @@
 		//echo $i;
 		$sCorrectUserId = $aUsers[$i]->id;
 		$sCorrectUserName = $aUsers[$i]->name;
-		//echo $sCorrectUserName;
 		$sCorrectUserLastname = $aUsers[$i]->lastname;
 		$sCorrectUserEmail = $aUsers[$i]->email;
 		$sCorrectUserPassword = $aUsers[$i]->password;
+		$sCorrectUserImage = $aUsers[$i]->image;
 
 		// IF OUR DATA FROM THE DATA FILE IS SAME WITH THE USER INPUT LET THE USER LOGIN. 
 		if ( $sCorrectUserName == $sUserName && $sCorrectUserPassword == $sUserPassword) {
@@ -30,6 +30,7 @@
 			$_SESSION['jUserLastName'] = $sCorrectUserLastname;
 			$_SESSION['jUserEmail'] = $sCorrectUserEmail;
 			$_SESSION['jUserPassword'] = $sCorrectUserPassword;
+			$_SESSION['jUserImage'] = $sCorrectUserImage;
 
 			$sResponse = '{"login":"yes"}';
 			echo $sResponse;

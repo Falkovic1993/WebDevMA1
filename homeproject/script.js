@@ -112,10 +112,11 @@ console.log("It's working!");
 					var userLastName = aUsers[i].lastname;
 					var userEmail = aUsers[i].email;
 					var userPassword = aUsers[i].password;
-					console.log(userId, userName, userLastName, userEmail, userPassword);
-					var btnDeleteUser = "<button type='button' class='btnDeleteUsers' data-userId="+userId+">Delete</button>";
+					var userImage = aUsers[i].image;
+					//console.log(userId, userName, userLastName, userEmail, userPassword);
 					//PUT THE USER DATA TOGETHER AND PUT IT INTO A DIV SO WE CAN SHOW IT.
-					sDivUserInfo = "<div class='user' id=" + userId + "><h3>" + userId +"</h3>" + userName + "<br>" + userLastName + "<br>" + userEmail + "<br>" + userPassword + "<br>" + btnDeleteUser + "</div>";
+					sDivUserInfo = "<div class='user' id=" + userId + "><h3>" + userId +"</h3>" + userName + "<br>" + userLastName +
+					 "<br>" + userEmail + "<br>" + userPassword + "<br>" + userImage + "<button class='btnDeleteUsers' data-userId="+userId+">Delete</button></div>";
 					userList.insertAdjacentHTML('beforeend', sDivUserInfo);
 				};
 			};
@@ -125,13 +126,12 @@ console.log("It's working!");
 	});
 
 	//DELETE A USER 
-	var btnDeleteUsers = document.getElementsByClassName("btnDeleteUsers");
-		for (i = 0; i < btnDeleteUsers.length; i++) {
-			console.log("a");
-		btnDeleteUsers.addEventListener("click", function(){
-			console.log("he");
-			var userId = this.dataset.userId;
-			console.log(userId);
-		});
-			
-		};
+	// var btnDeleteUser = document.getElementsByClassName("btnDeleteUsers");
+	// for (var i = 0; i < btnDeleteUser.length; i++) {
+	// 	btnDeleteUser.addEventListener("click", function(){
+	// 	console.log("hi");
+
+
+	// });
+	// }
+

@@ -186,3 +186,7 @@ form input {
 .txtProfileInfo {
 	padding:25px 0px;
 }
+
+#frmSignUpUser {
+	flex-direction: column;
+}

@@ -70,6 +70,7 @@
 				<input type="text"  id="txtUserLastnameSU" name="txtUserLastnameSU" placeholder="Lastname"></input>
 				<input type="email"  id="txtUserEmailSU" name="txtUserEmailSU" placeholder="Email"></input>
 				<input type="password"  id="txtUserPasswordSU" name="txtUserPasswordSU" placeholder="Password"></input>
+				<input type="file" name="fileUserImage"></input>
 				<button type="button" id="btnUserSU">Sign Up!</button>
 		</form>
 	</div>
@@ -87,6 +88,7 @@
 					$sUserLastName = $_SESSION['jUserLastName'];
 					$sUserEmail = $_SESSION['jUserEmail'];
 					$sUserPassword = $_SESSION['jUserPassword'];
+					$sUserImage = $_SESSION['jUserImage'];
 				
 		};	?>
 			<form id="frmUpdateUser">
@@ -95,6 +97,7 @@
 				<h4 class="txtProfileInfo">Lastname: <?php  echo $sUserLastName; ?><input type="text" name="UpdateUserLastName"></h4>
 				<h4 class="txtProfileInfo">Email: <?php  echo $sUserEmail; ?><input type="text" name="UpdateUserEmail"></h4>
 				<h4 class="txtProfileInfo">Password: <?php  echo $sUserPassword; ?><input type="text" name="UpdateUserPassword"></h4>
+				<h4 class="txtProfileInfo">Profile Image: <img src="'+user.image +'""><input type="file" name="image"></h4>
 				<button type="button" id="btnUpdateUser">Save information</button>
 			</form>
 		
