@@ -50,7 +50,7 @@
 		?>
 
 		<form id="frmLogin">
-			<input type="text" name="txtUserName" placeholder="Name"></input>
+			<input type="text" name="txtUserEmail" placeholder="Email"></input>
 			<input type="text" name="txtUserPassword" placeholder="Password"></input>
 			<button type="button" id="btnLogin">Login</button>
 			<?php 
@@ -97,7 +97,7 @@
 				<h4 class="txtProfileInfo">Lastname: <?php  echo $sUserLastName; ?><input type="text" name="UpdateUserLastName"></h4>
 				<h4 class="txtProfileInfo">Email: <?php  echo $sUserEmail; ?><input type="text" name="UpdateUserEmail"></h4>
 				<h4 class="txtProfileInfo">Password: <?php  echo $sUserPassword; ?><input type="text" name="UpdateUserPassword"></h4>
-				<h4 class="txtProfileInfo">Profile Image: <img id="profileImage" src="<?php echo $sUserImage; ?>"><input type="file" name="image"></h4>
+				<h4 class="txtProfileInfo">Profile Image: <img id="profileImage" src="<?php echo $sUserImage; ?>"><input type="file" name="UpdateUserImage"></input></h4>
 				<button type="button" id="btnUpdateUser">Save information</button>
 			</form>
 		

@@ -3,8 +3,8 @@
 	//CHECK IF WE HAVE A SESSION GOING.
 	if (isset($_SESSION['jUser'])) {
 		//LOAD OUR USERS DATA
-		$jUsers = file_get_contents('data-users.txt');
-		$aUsers = json_decode($jUsers);
+		$sUsers = file_get_contents('data-users.txt');
+		$aUsers = json_decode($sUsers);
 		$sUserId = $_SESSION['jUserId'];
 		//LOOP THROUGH OUR DATA AND CHECK IF WE CAN FIND A MATCH IN OUR ID. 
 		for ($i = 0; $i < count($aUsers); $i++) {
@@ -31,6 +31,7 @@
 					$aUsers[$i]->password = $_POST['UpdateUserPassword'] ?? '';
 					$_SESSION['jUserPassword'] = $aUsers[$i]->password;
 				}
+				// INSET UPDATE FUNCTION FOR IMAGE BELOW HERE!!
 			}
 		}
 		//EN"LISH" OUR CODE SO WE CAN SAVE IT IN OUR TXT FILE AGAIN. 

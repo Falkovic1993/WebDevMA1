@@ -4,7 +4,7 @@
 	session_start();
 
 	// FETCH DATA FROM OUR LOGIN FORM 
-	$sUserName = $_POST['txtUserName'];
+	$sUserEmail = $_POST['txtUserEmail'];
 	$sUserPassword = $_POST['txtUserPassword'];
 
 	// GET USER DATA FROM OUR DATA FILE. 
@@ -22,7 +22,7 @@
 		$sCorrectUserImage = $aUsers[$i]->image;
 
 		// IF OUR DATA FROM THE DATA FILE IS SAME WITH THE USER INPUT LET THE USER LOGIN. 
-		if ( $sCorrectUserName == $sUserName && $sCorrectUserPassword == $sUserPassword) {
+		if ( $sCorrectUserEmail == $sUserEmail && $sCorrectUserPassword == $sUserPassword) {
 
 			$_SESSION['jUser'] = $sCorrectUserName;
 			$_SESSION['jUserId'] = $sCorrectUserId;
