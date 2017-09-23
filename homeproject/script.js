@@ -116,7 +116,7 @@ console.log("It's working!");
 					//console.log(userId, userName, userLastName, userEmail, userPassword);
 					//PUT THE USER DATA TOGETHER AND PUT IT INTO A DIV SO WE CAN SHOW IT.
 					sDivUserInfo = "<div class='user' id=" + userId + "><h3>" + userId +"</h3>" + userName + "<br>" + userLastName +
-					 "<br>" + userEmail + "<br>" + userPassword + "<br>" + userImage + "<button class='btnDeleteUsers' data-userId="+userId+">Delete</button></div>";
+					 "<br>" + userEmail + "<br>" + userPassword + "<br> <button class='btnDeleteUsers' data-userId="+userId+">Delete</button></div>";
 					userList.insertAdjacentHTML('beforeend', sDivUserInfo);
 				};
 			};
@@ -126,12 +126,13 @@ console.log("It's working!");
 	});
 
 	//DELETE A USER 
-	// var btnDeleteUser = document.getElementsByClassName("btnDeleteUsers");
-	// for (var i = 0; i < btnDeleteUser.length; i++) {
-	// 	btnDeleteUser.addEventListener("click", function(){
-	// 	console.log("hi");
+	 var btnDeleteUser = document.getElementsByClassName("btnDeleteUsers");
+	 for (var i = 0; i < btnDeleteUser.length; i++) {
+	 	console.log("delete button")
+	 	btnDeleteUser.addEventListener("click", function(){
+	 	console.log("hi");
 
 
-	// });
-	// }
+	});
+	}
 

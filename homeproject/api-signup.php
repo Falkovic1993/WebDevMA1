@@ -24,13 +24,11 @@
 	for ($i = 0; $i < count($jOldUsers); $i++ ) {
 		if ($jNewUser->email == $jOldUsers[$i]->name ) {
 			echo "email is already taken";
+			// We're saying here if email is already used, dont add the user. 
 			exit;
 		}
 	}
-
-
-
-
+	
 	// Push the new users to the array
 	array_push($jOldUsers, $jNewUser);
 
