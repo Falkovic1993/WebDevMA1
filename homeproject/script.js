@@ -125,14 +125,10 @@ console.log("It's working!");
 		ajax.send();
 	});
 
-	//DELETE A USER 
-	 var btnDeleteUser = document.getElementsByClassName("btnDeleteUsers");
-	 for (var i = 0; i < btnDeleteUser.length; i++) {
-	 	console.log("delete button")
-	 	btnDeleteUser.addEventListener("click", function(){
-	 	console.log("hi");
-
-
+	//DELETE A USER
+    document.addEventListener("click", function(e){
+    	if (e.target.className === "btnDeleteUsers") {
+    		console.log("delete");
+		}
 	});
-	}
 

@@ -129,7 +129,7 @@
 					<p>Emil</p>
 					<p>Falk</p>
 					<p>Emil93falk@hotmail.com</p>
-					<button id="btnDeleteUser">Delete</button>
+					<button class="btnDeleteUser">Delete</button>
 				</div>
 
 				<div class="user">
@@ -137,7 +137,7 @@
 					<p>Emil</p>
 					<p>Falk</p>
 					<p>Emil93falk@hotmail.com</p>
-					<button id="btnDeleteUser">Delete</button>
+					<button class="btnDeleteUser">Delete</button>
 				</div>
 
 				<div class="user">
@@ -145,7 +145,7 @@
 					<p>Emil</p>
 					<p>Falk</p>
 					<p>Emil93falk@hotmail.com</p>
-					<button id="btnDeleteUser">Delete</button>
+					<button class="btnDeleteUser">Delete</button>
 				</div>
 			</div>
 		</div>
