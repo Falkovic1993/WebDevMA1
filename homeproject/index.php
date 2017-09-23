@@ -123,12 +123,16 @@
 
 
 			<div id="userList">
+				<form id="frmDeleteUser">
+					
+					
+				</form>
 
 				
 				
 
-				
-				</div>
+		
+			</div>
 			</div>
 		</div>
 	</div>

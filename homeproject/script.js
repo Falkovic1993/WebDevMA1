@@ -125,10 +125,24 @@ console.log("It's working!");
 		ajax.send();
 	});
 
-	//DELETE A USER
-    document.addEventListener("click", function(e){
-    	if (e.target.className === "btnDeleteUsers") {
-    		console.log("delete");
-		}
-	});
+	//DELETE A USER 
 
+	var jFrmDeleteUser = new FormData( frmDeleteUser );
+    document.addEventListener("click", function(e){
+    	var userDataId = e.target.getAttribute("data-userId")
+    	jFrmDeleteUser.append( "id", userDataId );
+
+    	var ajax = new XMLHttpRequest();
+		ajax.onreadystatechange = function() {
+		if (this.readyState == 4 && this.status == 200) {
+	    	if (e.target.className === "btnDeleteUsers") {
+	    		var parent = e.target.parentElement;
+	    		parent.remove();
+	    		//console.log(userDataId);
+	    		//console.log(this.responseText);
+			}
+		}
+		};
+		ajax.open( "POST", "api-delete-user.php", true);
+		ajax.send(jFrmDeleteUser);
+	});
