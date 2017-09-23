@@ -97,7 +97,7 @@
 				<h4 class="txtProfileInfo">Lastname: <?php  echo $sUserLastName; ?><input type="text" name="UpdateUserLastName"></h4>
 				<h4 class="txtProfileInfo">Email: <?php  echo $sUserEmail; ?><input type="text" name="UpdateUserEmail"></h4>
 				<h4 class="txtProfileInfo">Password: <?php  echo $sUserPassword; ?><input type="text" name="UpdateUserPassword"></h4>
-				<h4 class="txtProfileInfo">Profile Image: <img src="'+user.image +'""><input type="file" name="image"></h4>
+				<h4 class="txtProfileInfo">Profile Image: <img src="<?php echo $sUserImage; ?>"><input type="file" name="image"></h4>
 				<button type="button" id="btnUpdateUser">Save information</button>
 			</form>
 		
