@@ -1,7 +1,7 @@
 <?php 
 	session_start();
 	//CHECK IF WE HAVE A SESSION GOING.
-	if (isset($_SESSION['jUser'])) {
+	if (isset($_SESSION['loggedIn'])) {
 		//LOAD OUR USERS DATA
 		$sUsers = file_get_contents('data-users.txt');
 		$aUsers = json_decode($sUsers);

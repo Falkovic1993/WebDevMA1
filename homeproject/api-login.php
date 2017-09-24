@@ -24,7 +24,7 @@
 		// IF OUR DATA FROM THE DATA FILE IS SAME WITH THE USER INPUT LET THE USER LOGIN. 
 		if ( $sCorrectUserEmail == $sUserEmail && $sCorrectUserPassword == $sUserPassword) {
 
-			$_SESSION['jUser'] = $sCorrectUserName;
+			$_SESSION['loggedIn'] = "LoggedIn";
 			$_SESSION['jUserId'] = $sCorrectUserId;
 			$_SESSION['jUserName'] = $sCorrectUserName;
 			$_SESSION['jUserLastName'] = $sCorrectUserLastname;

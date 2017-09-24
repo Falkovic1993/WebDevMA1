@@ -1,7 +1,7 @@
 <?php
 
 	session_start();
-	if ( isset($_SESSION['jUser']) ) {
+	if ( isset($_SESSION['loggedIn']) ) {
 
 		echo "heeehe";
 	};
@@ -24,14 +24,14 @@
 				<span id="LogoName">Mandatory Assignment</span>
 				<button id="btnFrontpage" class="btnMenu" data-showThisPage="frontPage">Frontpage</button>
 				<?php 
-					if ( isset($_SESSION['jUser']) ) {
+					if ( isset($_SESSION['loggedIn']) ) {
 						$profilePage = "<button id='btnProfilepage' class='btnMenu' data-showThisPage='profilePage'>Profil</button>";
 						echo $profilePage;
 					}; ?>
 				<button id="btnUserPage" class="btnMenu" data-showThisPage="userPage">User</button>
 				<button id="btnProductPage" class="btnMenu" data-showThisPage="productPage">Product</button>
 				<?php 
-					if ( isset($_SESSION['jUser']) ) {
+					if ( isset($_SESSION['loggedIn']) ) {
 						$menuLogOut = "<button type='button' class='btnLogOut'>Log Out</button>";
 						echo $menuLogOut;
 					}; ?>
@@ -43,7 +43,7 @@
 	<div id="frontPage" class="page">
 		<?php
 
-			if ( isset($_SESSION['jUser']) ) {
+			if ( isset($_SESSION['loggedIn']) ) {
 			$sWelcome = "Welcome" . ' ' . $_SESSION['jUserName'];
 			echo $sWelcome;
 	};
@@ -54,7 +54,7 @@
 			<input type="text" name="txtUserPassword" placeholder="Password"></input>
 			<button type="button" id="btnLogin">Login</button>
 			<?php 
-					if ( isset($_SESSION['jUser']) ) {
+					if ( isset($_SESSION['loggedIn']) ) {
 						$btnLogOut = "<button type='button' class='btnLogOut'>Log Out</button>";
 						echo $btnLogOut;
 					}; ?>
@@ -82,7 +82,7 @@
 		<div class="boxProfilPage">
 			<h3>Profile Page</h3>
 			<?php
-				if ( isset($_SESSION['jUser']) ) {
+				if ( isset($_SESSION['loggedIn']) ) {
 					$sUserId = $_SESSION['jUserId'];
 					$sUserName = $_SESSION['jUserName'];
 					$sUserLastName = $_SESSION['jUserLastName'];
