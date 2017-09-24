@@ -15,6 +15,8 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Mandatory Assignment</title>
 	<link rel="stylesheet" type="text/css" href="style.css">
+	
+	<script src="https://use.fontawesome.com/7db9382a77.js"></script>
 
 </head>
 
@@ -41,6 +43,8 @@
 
 	<!-- FRONTPAGE START HERE -->
 	<div id="frontPage" class="page">
+
+		<div class="welcomeBox">
 		<?php
 
 			if ( isset($_SESSION['loggedIn']) ) {
@@ -48,11 +52,18 @@
 			echo $sWelcome;
 	};
 		?>
+		</div>
 
 		<form id="frmLogin">
-			<input type="text" name="txtUserEmail" placeholder="Email"></input>
-			<input type="text" name="txtUserPassword" placeholder="Password"></input>
-			<button type="button" id="btnLogin">Login</button>
+			<div class="input-group">
+				<span class="input-group-addon"><i class="fa fa-envelope-o fa-fw" aria-hidden="true"></i></span>
+				<input  class="form-control" type="text" name="txtUserEmail" placeholder="Email Address"> </input>
+			</div>
+			<div class="input-group">
+				<span class="input-group-addon"><i class="fa fa-key fa-fw" aria-hidden="true"></i></span>
+				<input class="form-control" type="password" name="txtUserPassword" placeholder="Password"></input>
+			</div>
+				<button type="button" id="btnLogin">Login</button>
 			<?php 
 					if ( isset($_SESSION['loggedIn']) ) {
 						$btnLogOut = "<button type='button' class='btnLogOut'>Log Out</button>";
