@@ -32,6 +32,24 @@
 					$_SESSION['jUserPassword'] = $aUsers[$i]->password;
 				}
 				// INSET UPDATE FUNCTION FOR IMAGE BELOW HERE!!
+				if ($_FILES['UpdateUserImage']['size'] == 0 or $_FILES['UpdateUserImage']['error'] == 4) {
+					echo "No files uploaded";
+				} else {
+					//Removes file from our folder
+					unlink($aUsers[$i]->image);
+					//unset($aUsers[$i]->image);
+
+					$sFileExtension = pathinfo($_FILES['UpdateUserImage']['name'], PATHINFO_EXTENSION);
+					$sFolder = 'images/users/';
+					$sFileName = 'userimage-'.uniqid().'.'.$sFileExtension;
+					$sSaveFileTo = $sFolder.$sFileName;
+					move_uploaded_file($_FILES['UpdateUserImage']['tmp_name'], $sSaveFileTo);
+
+					$aUsers[$i]->image = $sFolder.$sFileName;
+					// store our new data in the session
+					$_SESSION['jUserImage'] = $aUsers[$i]->image;
+
+				}
 			}
 		}
 		//EN"LISH" OUR CODE SO WE CAN SAVE IT IN OUR TXT FILE AGAIN. 
@@ -43,9 +61,9 @@
 	}
 
 
-echo $sUserId;
-echo $jUsers;
-echo $aUsers;
+//echo $sUserId;
+//echo $jUsers;
+//echo $aUsers;
 
 
 

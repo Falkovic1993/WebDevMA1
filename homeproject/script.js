@@ -51,7 +51,10 @@ console.log("It's working!");
 		var ajax = new XMLHttpRequest();
 		ajax.onreadystatechange = function() {
 			if(this.readyState == 4 && this.status == 200) {
-			window.location.reload();
+				console.log(this.responseText);
+				window.location.reload();
+				
+				;
 			};
 		}
 		ajax.open( "POST", "api-update-user.php", true );
@@ -69,7 +72,7 @@ console.log("It's working!");
 			if(this.readyState == 4 && this.status == 200) {
 			var jDataFromServer = this.responseText;
 			console.log(jDataFromServer);
-			//window.location.reload();
+			window.location.reload();
 			};
 		}
 		ajax.open( "POST", "api-login.php", true );
