@@ -23,8 +23,8 @@
 <body>
 
 		<nav class="navigation">
-				<span id="LogoName">Mandatory Assignment</span>
-				<button id="btnFrontpage" class="btnMenu" data-showThisPage="frontPage">Frontpage</button>
+				<span id="LogoName">Awesome CMS</span>
+				<button id="btnFrontpage" class="btnMenu btn-default" data-showThisPage="frontPage">Frontpage</button>
 				<?php 
 					if ( isset($_SESSION['loggedIn']) ) {
 						$profilePage = "<button id='btnProfilepage' class='btnMenu' data-showThisPage='profilePage'>Profil</button>";
@@ -38,8 +38,19 @@
 						echo $menuLogOut;
 					}; ?>
 		</nav>
+		
 
 	<div class="wrapper">
+
+		<nav class="loginNav">
+			<span>User Dashboard</span>
+			<button class="btn-default">Add User</button>
+			<button class="btn-default">Add Product</button>
+			<button class="btn-default">Edit pages</button>
+			<button class="btn-default">Edit pages</button>
+			<button class="btn-default">Edit pages</button>
+			
+		</nav>
 
 	<!-- FRONTPAGE START HERE -->
 	<div id="frontPage" class="page">
