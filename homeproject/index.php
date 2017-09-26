@@ -43,13 +43,20 @@
 	<div class="wrapper">
 
 		<nav class="loginNav">
-			<span>User Dashboard</span>
-			<button class="btn-default">Add User</button>
-			<button class="btn-default">Add Product</button>
-			<button class="btn-default">Edit pages</button>
-			<button class="btn-default">Edit pages</button>
-			<button class="btn-default">Edit pages</button>
-			
+			<?php
+				if (isset($_SESSION['loggedIn'])) {
+					$menuName = "<span>User Dashboard </span>";
+					$addUserPage = "<button id='btnAddUserPage' class='btnMenu' data-showThisPage='addUserPage'>Add User</button>";
+					$addProductPage = "<button id='btnAddProductPage' class='btnMenu' data-showThisPage='addProductPage'>Add Product</button>";
+					$editPages = "<button id='btnEditPages' class='btnMenu' data-showThisPage='editPage'>Edit Pages</button>";
+
+					echo $menuName;
+					echo $addUserPage;
+					echo $addProductPage;
+					echo $editPages;
+				}
+		
+			?>
 		</nav>
 
 	<!-- FRONTPAGE START HERE -->
