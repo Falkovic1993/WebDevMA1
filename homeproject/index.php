@@ -38,11 +38,8 @@
 						echo $menuLogOut;
 					}; ?>
 		</nav>
-		
 
-	<div class="wrapper">
-
-		<nav class="loginNav">
+		<nav class="loginNav" <?php if (isset($_SESSION['loggedIn'])) {?> style="display:flex"<?php }  ?> >
 			<?php
 				if (isset($_SESSION['loggedIn'])) {
 					$menuName = "<span>User Dashboard </span>";
@@ -55,9 +52,13 @@
 					echo $addProductPage;
 					echo $editPages;
 				}
-		
 			?>
 		</nav>
+		
+
+	<div class="wrapper">
+
+		
 
 	<!-- FRONTPAGE START HERE -->
 	<div id="frontPage" class="page">
@@ -137,76 +138,70 @@
 
 	<!-- USERPAGE START HERE -->
 	<div id="userPage" class="page">
-
 		<div class="container">
-
-
-			<form id="userForm">
-				<input type="text" id="userName" name="userName" placeholder="Name"></input>
-				<input type="text" id="userLastName" name="userLastName" placeholder="Lastname"></input>
-				<input type="text" id="userEmail" name="userEmail" placeholder="Email"></input>
-				<input type="file" id="userImage" name="userImage"></input>
-				<button type="button" id="btnSaveUser">Save Product</button>
-			</form>
-
-
-
 			<div id="userList">
+				
+				<!-- THIS FORM IS USED TO SENT DATA ABOUT THE USER WHEN WE DELETE IT -->
 				<form id="frmDeleteUser">
-					
-					
 				</form>
-
-				
-				
-
-		
-			</div>
 			</div>
 		</div>
 	</div>
 
-		<!-- PRODUCTPAGE START HERE -->
+	<!-- ADD USER PAGE WHEN LOGGED IN -->
+
+	<div id="addUserPage" class="page">
+		<div class="contanier">
+
+		<div id="addUserBox">
+			<h2>Add new user</h2>
+			<form id="frmAddUser" method="POST">
+					<input type="text" id="txtAddUserName" name="txtUserNameSU" placeholder="Name"></input>
+					<input type="text"  id="txtAddUserLastname" name="txtUserLastnameSU" placeholder="Lastname"></input>
+					<input type="email"  id="txtAddUserEmail" name="txtUserEmailSU" placeholder="Email"></input>
+					<input type="password"  id="txtAddUserPassword" name="txtUserPasswordSU" placeholder="Password"></input>
+					<input type="file" name="fileUserImage"></input>
+					<button type="button" id="btnAddUser">Add new user</button>
+			</form>
+		</div>
+		</div>
+	</div>
+
+	<!-- PRODUCTPAGE START HERE -->
 
 	<div id="productPage" class="page">
 
-		<div class="container">
+		<div class="container" id="productList">
 			
-			<div class="item">
-				<h3>Hello</h3>
-				<p>This is a quick description</p>
-			</div>
+			
 			<div class="item">
 				<h3>Hello</h3>
 				<img src="images/shoe1.png">
 				<p>This is a quick description</p>
 			</div>
-			<div class="item">
-				<h3>Hello</h3>
-				<p>This is a quick description</p>
-			</div>
-			<div class="item">
-				<h3>Hello</h3>
-				<p>This is a quick description</p>
-			</div>
-			<div class="item">
-				<h3>Hello</h3>
-				<p>This is a quick description</p>
-			</div>
-			<div class="item">
-				<h3>Hello</h3>
-				<p>This is a quick description</p>
-			</div>
-			<div class="item">
-				<h3>Hello</h3>
-				<p>This is a quick description</p>
-			</div>
+		
 		</div>
 	</div>
 
-
-
+	<div id="addProductPage" class="page">
+		<div class="contanier">
+		<div id="addProductBox">
+			<h2>Add new product</h2>
+			<form id="frmAddProduct" method="POST">
+					<input type="text" id="txtAddProductName" name="txtAddProductName" placeholder="Name"></input>
+					<input type="text"  id="txtAddProductPrice" name="txtAddProductPrice" placeholder="Price"></input>
+					<input type="text"  id="txtAddProductQuantity " name="txtAddProductQuantity" placeholder="Quantity"></input>
+					<input type="text"  id="txtAddProductDescription" name="txtAddProductDescription" placeholder="Description"></input>
+					<input type="file" name="fileProductImage"></input>
+					<button type="button" id="btnAddProduct">Add Product</button>
+			</form>
+		</div>
+		<div class="productOverview">
+			
+		</div>
 	</div>
+
+</div>
 
 
 

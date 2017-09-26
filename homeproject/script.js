@@ -23,13 +23,12 @@ console.log("It's working!");
 		console.log("X")
 		SignUpBox.style.display = "flex";
 	});
-
 	// CLOSE THE SIGN UP FORM
 	closeSignUp.addEventListener("click", function(){
 		SignUpBox.style.display = "none";
-	})
+	});
 
-	// SAVE THE USER INTO OUR DATA WHEN THEY SIGN UP 
+	//SIGN UP USER 
 	btnUserSU.addEventListener("click", function(){
 			console.log("X")
 
@@ -45,6 +44,21 @@ console.log("It's working!");
 		    ajax.send(jFrmSignUpUser);
 		});
 
+	//ADD USER TO THE WEBSITE. // WE USE SAME API TO SIGNUP A USER AND ADD THEM. 
+	btnAddUser.addEventListener("click", function(){
+			console.log("X");
+		var ajax = new XMLHttpRequest();
+			ajax.onreadystatechange = function() {
+				if(this.readyState == 4 && this.status == 200) {
+				  	var sDataFromServer = this.responseText;
+         			console.log("Response: ",sDataFromServer);
+				}
+			}
+			ajax.open( "POST", "api-signup.php", true );
+		    var jFrmAddUser = new FormData(frmAddUser);
+		    ajax.send(jFrmAddUser);
+		});
+
 	// UPDATE USER INFORMATION
 	btnUpdateUser.addEventListener("click", function() {
 		console.log("update");
@@ -53,14 +67,11 @@ console.log("It's working!");
 			if(this.readyState == 4 && this.status == 200) {
 				console.log(this.responseText);
 				window.location.reload();
-				
-				;
 			};
 		}
 		ajax.open( "POST", "api-update-user.php", true );
 	    var jFrmUpdate = new FormData(frmUpdateUser);
 	    ajax.send(jFrmUpdate);
-
 	})
 
 	// LOGIN TO THE SITE! 
@@ -129,7 +140,6 @@ console.log("It's working!");
 	});
 
 	//DELETE A USER 
-
 	var jFrmDeleteUser = new FormData( frmDeleteUser );
     document.addEventListener("click", function(e){
     	var userDataId = e.target.getAttribute("data-userId")
@@ -141,11 +151,56 @@ console.log("It's working!");
 	    	if (e.target.className === "btnDeleteUsers") {
 	    		var parent = e.target.parentElement;
 	    		parent.remove();
-	    		//console.log(userDataId);
-	    		//console.log(this.responseText);
 			}
 		}
-		};
+	};
 		ajax.open( "POST", "api-delete-user.php", true);
 		ajax.send(jFrmDeleteUser);
+	});
+
+    // ADD A PRODUCT
+    btnAddProduct.addEventListener("click", function(){
+			console.log("X");
+		var ajax = new XMLHttpRequest();
+			ajax.onreadystatechange = function() {
+				if(this.readyState == 4 && this.status == 200) {
+				  	var sDataFromServer = this.responseText;
+         			console.log("Response: ",sDataFromServer);
+				}
+			}
+			ajax.open( "POST", "api-add-product.php", true );
+		    var jFrmAddProduct = new FormData(frmAddProduct);
+		    ajax.send(jFrmAddProduct);
+		});
+
+    // SHOW PRODUCTS FOR THE USER. 
+    btnProductPage.addEventListener("click", function(){
+		var ajax = new XMLHttpRequest();
+		ajax.onreadystatechange = function() {
+			if (this.readyState == 4 && this.status == 200) {
+				var aProducts = JSON.parse(this.responseText);
+				productList.innerHTML = "";
+				for ( i = 0 ; i < aProducts.length; i++) {
+					// GET THE PRODUCT DATA
+					var productName = aProducts[i].name;
+					var productPrice = aProducts[i].price;
+					var productQuantity = aProducts[i].quantity;
+					var productDescription = aProducts[i].description;
+					var productImage = aProducts[i].image;
+					//console.log(userId, userName, userLastName, userEmail, userPassword);
+					//PUT THE USER DATA TOGETHER AND PUT IT INTO A DIV SO WE CAN SHOW IT.
+					sDivProductInfo = "<div class='item'><h3>" + productName +"</h3>" + "<img src='"+productImage+"'>" + "<br>" + productPrice +
+					 "<br>" + productDescription + "<br>";
+					productList.insertAdjacentHTML('beforeend', sDivProductInfo);
+
+					/*<div class="item">
+					<h3>Hello</h3>
+					<img src="images/shoe1.png">
+					<p>This is a quick description</p>
+					</div>*/
+				};
+			};
+		};
+		ajax.open( "GET", "api-show-products.php", true);
+		ajax.send();
 	});

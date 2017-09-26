@@ -1,4 +1,6 @@
 <?php
+	
+	
 
 	$sFileExtension = pathinfo($_FILES['fileUserImage']['name'], PATHINFO_EXTENSION);
 	$sFolder = 'images/users/';
@@ -9,7 +11,7 @@
 	// Get all information on the user and save it as an 
 	$jNewUser = json_decode('{}');
 	$jNewUser->id = uniqid();
-	$jNewUser->name = $_POST['txtUserNameSignUp'];
+	$jNewUser->name = $_POST['txtUserNameSU'];
 	$jNewUser->lastname = $_POST['txtUserLastnameSU'];
 	$jNewUser->email = $_POST['txtUserEmailSU'];
 	$jNewUser->password = $_POST['txtUserPasswordSU'];
