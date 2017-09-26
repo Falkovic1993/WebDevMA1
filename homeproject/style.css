@@ -122,7 +122,6 @@ body {
 	background-color:red;
 	padding: 10px 10px;
 	margin:0 auto;
-
 }
 
 #frmAddUser {
@@ -192,6 +191,33 @@ body {
     height: 100%; 
     background-color: rgba(0,0,0,0.4); 
     padding-top: 60px;
+}
+
+#editProductBox {
+	display: none; 
+    position: fixed; 
+    z-index: 1; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    background-color: rgba(0,0,0,0.4); 
+    padding-top: 60px;
+}
+
+#frmEditProduct{
+	display: flex;
+	background-color: #f1f1f1;
+	border: 1 px solid;
+	width: 60%;
+	margin: auto;
+	flex-direction: column;
+	justify-content: center;
+}
+
+#frmEditProduct h4 {
+	display: flex;
+	justify-content: center;
 }
 
 #frmSignUpUser {

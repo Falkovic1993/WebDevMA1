@@ -97,7 +97,6 @@ console.log("It's working!");
 	//console.log(LogOut);
 	btnLogOut[i].addEventListener("click", function(){
 		console.log("LogOut");
-
 		var ajax = new XMLHttpRequest();
 		ajax.onreadystatechange = function() {
 
@@ -213,7 +212,7 @@ console.log("It's working!");
 					var productDescription = aProducts[i].description;
 					var productImage = aProducts[i].image;
 					sDivProductInfo = "<div class='productview'><p>" + productName +"</p>" + "<p>" + productQuantity +"</p><p>" + productPrice +"</p><p>"
-					 + productDescription + "</p><img src='"+productImage+"'> <button class='btnEditProduct'>Edit</button><button class='btnDeleteProduct'>Delete</button>"; 
+					 + productDescription + "</p><img src='"+productImage+"'> <button class='btnEditProduct' data-productId='"+productId+"'>Edit</button><button class='btnDeleteProduct'>Delete</button>"; 
 					productOverview.insertAdjacentHTML('beforeend', sDivProductInfo);
 				};
 			};
@@ -222,5 +221,24 @@ console.log("It's working!");
 		ajax.send();
 	});
 
-	// EDIT THE PRODUCT
+	// OPEN THE EDIT BOX
+	document.addEventListener("click", function(e){
+		var ajax = new XMLHttpRequest();
+		ajax.onreadystatechange = function() {
+		if (this.readyState == 4 && this.status == 200) {
+			if (e.target.className === "btnEditProduct") {
+				var productId = e.target.getAttribute("data-productId")
+				editProductBox.style.display = "flex";
+				console.log(productId);
+				var sid = JSON.stringify(productId);
+
+			}
+		}
+		}
+		ajax.open( "POST", "api-update-products.php", true);
+		
+		ajax.send( {productId: sid});
+	
+	});
+
 	 

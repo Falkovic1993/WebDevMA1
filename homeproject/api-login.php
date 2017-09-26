@@ -34,6 +34,7 @@
 
 			$sResponse = '{"login":"yes"}';
 			echo $sResponse;
+
 			// WE USE EXIT SO WE DONT NEED TO USE ELSE; SINCE IF WE RUN THIS IT WILL STOP RIGHT AFTER EXIT. 
 			exit;
 	};

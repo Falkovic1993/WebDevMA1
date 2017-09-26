@@ -6,6 +6,9 @@
 		echo "heeehe";
 	};
 
+				
+	
+
 ?>
 
 <!DOCTYPE html>
@@ -113,7 +116,7 @@
 			<h3>Profile Page</h3>
 			<?php
 				if ( isset($_SESSION['loggedIn']) ) {
-					$sUserId = $_SESSION['jUserId'];
+					$sCorrectProductId = $_SESSION['jUserId'];
 					$sUserName = $_SESSION['jUserName'];
 					$sUserLastName = $_SESSION['jUserLastName'];
 					$sUserEmail = $_SESSION['jUserEmail'];
@@ -122,8 +125,8 @@
 				
 		};	?>
 			<form id="frmUpdateUser">
-				<h4 class="txtProfileInfo">User ID: <?php  echo $sUserId; ?></h4>
-				<h4 class="txtProfileInfo">Name: <?php  echo $sUserName; ?><input type="text" name="UpdateUserName"></h4>
+				<h4 class="txtProfileInfo">User ID: <?php  echo $sCorrectProductId; ?></h4>
+				<h4 class="txtProfileInfo">Name: <?php  echo $sCorrectProductName; ?><input type="text" name="UpdateUserName"></h4>
 				<h4 class="txtProfileInfo">Lastname: <?php  echo $sUserLastName; ?><input type="text" name="UpdateUserLastName"></h4>
 				<h4 class="txtProfileInfo">Email: <?php  echo $sUserEmail; ?><input type="text" name="UpdateUserEmail"></h4>
 				<h4 class="txtProfileInfo">Password: <?php  echo $sUserPassword; ?><input type="text" name="UpdateUserPassword"></h4>
@@ -196,7 +199,7 @@
 					<button type="button" id="btnAddProduct">Add Product</button>
 			</form>
 		</div>
-
+		
 		<div class="productview">
 				<h4>Name</h4>
 				<h4>Quantity</h4>
@@ -206,7 +209,19 @@
 				
 			</div>
 		<div id="productOverview">
-			
+		</div>
+		
+	
+		<div id="editProductBox">
+			<form id="frmEditProduct">
+					<h4 class="editProducth4">Product ID: <?php  echo $sCorrectProductId; ?></h4>
+					<h4 class="editProducth4">Product Name: <?php  echo $sUserName; ?><input type="text" name="editProductName"></h4>
+					<h4 class="editProducth4">Quantity: <?php  echo $sUserLastName; ?><input type="text" name="editProductQuantity"></h4>
+					<h4 class="editProducth4">Price: <?php  echo $sUserEmail; ?><input type="text" name="editProductPrice"></h4>
+					<h4 class="editProducth4">Description: <?php  echo $sUserPassword; ?><input type="text" name="editProductDescription"></h4>
+					<h4 class="editProducth4">Product Image: <img id="productImage" src="<?php echo $sUserImage; ?>"><input type="file" name="edutProductImage"></input></h4>
+					<button type="button" id="btnEditProduct">Edit</button>
+				</form>
 		</div>
 	</div>
 
