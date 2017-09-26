@@ -196,7 +196,16 @@
 					<button type="button" id="btnAddProduct">Add Product</button>
 			</form>
 		</div>
-		<div class="productOverview">
+
+		<div class="productview">
+				<h4>Name</h4>
+				<h4>Quantity</h4>
+				<h4>Price</h4>
+				<h4>Description</h4>
+				<h4>Product Image:</h4>
+				
+			</div>
+		<div id="productOverview">
 			
 		</div>
 	</div>

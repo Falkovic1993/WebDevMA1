@@ -187,20 +187,40 @@ console.log("It's working!");
 					var productQuantity = aProducts[i].quantity;
 					var productDescription = aProducts[i].description;
 					var productImage = aProducts[i].image;
-					//console.log(userId, userName, userLastName, userEmail, userPassword);
-					//PUT THE USER DATA TOGETHER AND PUT IT INTO A DIV SO WE CAN SHOW IT.
 					sDivProductInfo = "<div class='item'><h3>" + productName +"</h3>" + "<img src='"+productImage+"'>" + "<br>" + productPrice +
 					 "<br>" + productDescription + "<br>";
 					productList.insertAdjacentHTML('beforeend', sDivProductInfo);
-
-					/*<div class="item">
-					<h3>Hello</h3>
-					<img src="images/shoe1.png">
-					<p>This is a quick description</p>
-					</div>*/
 				};
 			};
 		};
 		ajax.open( "GET", "api-show-products.php", true);
 		ajax.send();
 	});
+
+    //SHOW PRODUCTS FOR OUR EDITOR (WHEN YOUR LOGGED INTO THE SITE)
+	  btnAddProductPage.addEventListener("click", function(){
+		var ajax = new XMLHttpRequest();
+		ajax.onreadystatechange = function() {
+			if (this.readyState == 4 && this.status == 200) {
+				var aProducts = JSON.parse(this.responseText);
+				productOverview.innerHTML = "";
+				for ( i = 0 ; i < aProducts.length; i++) {
+					// GET THE PRODUCT DATA
+					var productId = aProducts[i].id;
+					var productName = aProducts[i].name;
+					var productPrice = aProducts[i].price;
+					var productQuantity = aProducts[i].quantity;
+					var productDescription = aProducts[i].description;
+					var productImage = aProducts[i].image;
+					sDivProductInfo = "<div class='productview'><p>" + productName +"</p>" + "<p>" + productQuantity +"</p><p>" + productPrice +"</p><p>"
+					 + productDescription + "</p><img src='"+productImage+"'> <button class='btnEditProduct'>Edit</button><button class='btnDeleteProduct'>Delete</button>"; 
+					productOverview.insertAdjacentHTML('beforeend', sDivProductInfo);
+				};
+			};
+		};
+		ajax.open( "GET", "api-show-products.php", true);
+		ajax.send();
+	});
+
+	// EDIT THE PRODUCT
+	 
