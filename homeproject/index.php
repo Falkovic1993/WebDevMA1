@@ -5,6 +5,10 @@
 
 		echo "heeehe";
 	};
+	if ( isset($_SESSION['updateProduct']) ) {
+
+		echo "product";
+	};
 
 				
 	
@@ -116,7 +120,7 @@
 			<h3>Profile Page</h3>
 			<?php
 				if ( isset($_SESSION['loggedIn']) ) {
-					$sCorrectProductId = $_SESSION['jUserId'];
+					$sUserId = $_SESSION['jUserId'];
 					$sUserName = $_SESSION['jUserName'];
 					$sUserLastName = $_SESSION['jUserLastName'];
 					$sUserEmail = $_SESSION['jUserEmail'];
@@ -125,8 +129,8 @@
 				
 		};	?>
 			<form id="frmUpdateUser">
-				<h4 class="txtProfileInfo">User ID: <?php  echo $sCorrectProductId; ?></h4>
-				<h4 class="txtProfileInfo">Name: <?php  echo $sCorrectProductName; ?><input type="text" name="UpdateUserName"></h4>
+				<h4 class="txtProfileInfo">User ID: <?php  echo $sUserId; ?></h4>
+				<h4 class="txtProfileInfo">Name: <?php  echo $sUserName; ?><input type="text" name="UpdateUserName"></h4>
 				<h4 class="txtProfileInfo">Lastname: <?php  echo $sUserLastName; ?><input type="text" name="UpdateUserLastName"></h4>
 				<h4 class="txtProfileInfo">Email: <?php  echo $sUserEmail; ?><input type="text" name="UpdateUserEmail"></h4>
 				<h4 class="txtProfileInfo">Password: <?php  echo $sUserPassword; ?><input type="text" name="UpdateUserPassword"></h4>
@@ -187,6 +191,18 @@
 	</div>
 
 	<div id="addProductPage" class="page">
+	
+	<?php 
+				if ( isset($_SESSION['updateProduct']) ) {
+					$sProductId = $_SESSION['productId'];
+					$sProductName = $_SESSION['productName'];
+					$sProductQuantity = $_SESSION['productQuantity'];
+					$sProductPrice = $_SESSION['productPrice'];
+					$sProductDescription = $_SESSION['productDescription'];
+					$sProductImage = $_SESSION['productImage'];
+				
+		};	?>
+
 		<div class="contanier">
 		<div id="addProductBox">
 			<h2>Add new product</h2>
@@ -213,13 +229,22 @@
 		
 	
 		<div id="editProductBox">
+			
+			<!--THIS FOR IS TO SEND THE PRODUCT ID TO THE SERVER -->
+			<form id="frmSaveProductId">
+			</form>
+
+			<form id="frmDeleteProduct">
+			</form>
+
+
 			<form id="frmEditProduct">
-					<h4 class="editProducth4">Product ID: <?php  echo $sCorrectProductId; ?></h4>
-					<h4 class="editProducth4">Product Name: <?php  echo $sUserName; ?><input type="text" name="editProductName"></h4>
-					<h4 class="editProducth4">Quantity: <?php  echo $sUserLastName; ?><input type="text" name="editProductQuantity"></h4>
-					<h4 class="editProducth4">Price: <?php  echo $sUserEmail; ?><input type="text" name="editProductPrice"></h4>
-					<h4 class="editProducth4">Description: <?php  echo $sUserPassword; ?><input type="text" name="editProductDescription"></h4>
-					<h4 class="editProducth4">Product Image: <img id="productImage" src="<?php echo $sUserImage; ?>"><input type="file" name="edutProductImage"></input></h4>
+					<h4 class="editProducth4">Product ID: <?php  echo $sProductId; ?></h4>
+					<h4 class="editProducth4">Product Name: <?php  echo $sProductName; ?><input type="text" name="editProductName"></h4>
+					<h4 class="editProducth4">Quantity: <?php  echo $sProductQuantity; ?><input type="text" name="editProductQuantity"></h4>
+					<h4 class="editProducth4">Price: <?php  echo $sProductPrice; ?><input type="text" name="editProductPrice"></h4>
+					<h4 class="editProducth4">Description: <?php  echo $sProductDescription; ?><input type="text" name="editProductDescription"></h4>
+					<h4 class="editProducth4">Product Image: <img id="productImage" src="<?php echo $sProductImage; ?>"><input type="file" name="edutProductImage"></input></h4>
 					<button type="button" id="btnEditProduct">Edit</button>
 				</form>
 		</div>

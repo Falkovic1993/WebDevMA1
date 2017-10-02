@@ -6,7 +6,6 @@
 	$jUserList = json_decode($sUserList);
 	//echo $jUserList;
 	
-	
 
 	for ($i = 0; $i < count($jUserList); $i++){
 		if ($jUserList[$i]->id == $userId){

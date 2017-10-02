@@ -25,12 +25,14 @@
 		if ( $sCorrectUserEmail == $sUserEmail && $sCorrectUserPassword == $sUserPassword) {
 
 			$_SESSION['loggedIn'] = "LoggedIn";
+			$_SESSON['updateProduct'] = "yes";
 			$_SESSION['jUserId'] = $sCorrectUserId;
 			$_SESSION['jUserName'] = $sCorrectUserName;
 			$_SESSION['jUserLastName'] = $sCorrectUserLastname;
 			$_SESSION['jUserEmail'] = $sCorrectUserEmail;
 			$_SESSION['jUserPassword'] = $sCorrectUserPassword;
 			$_SESSION['jUserImage'] = $sCorrectUserImage;
+			$_SESSON['productId'] = "";
 
 			$sResponse = '{"login":"yes"}';
 			echo $sResponse;

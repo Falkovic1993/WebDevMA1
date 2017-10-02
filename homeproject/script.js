@@ -212,7 +212,7 @@ console.log("It's working!");
 					var productDescription = aProducts[i].description;
 					var productImage = aProducts[i].image;
 					sDivProductInfo = "<div class='productview'><p>" + productName +"</p>" + "<p>" + productQuantity +"</p><p>" + productPrice +"</p><p>"
-					 + productDescription + "</p><img src='"+productImage+"'> <button class='btnEditProduct' data-productId='"+productId+"'>Edit</button><button class='btnDeleteProduct'>Delete</button>"; 
+					 + productDescription + "</p><img src='"+productImage+"'> <button class='btnEditProduct' data-productId="+productId+">Update</button><button class='btnDeleteProduct' data-productId="+productId+">Delete</button>"; 
 					productOverview.insertAdjacentHTML('beforeend', sDivProductInfo);
 				};
 			};
@@ -221,8 +221,9 @@ console.log("It's working!");
 		ajax.send();
 	});
 
-	// OPEN THE EDIT BOX
+	// OPEN THE UPDATE  BOX // THIS NEED TO BE FIXED!!!!!
 	document.addEventListener("click", function(e){
+		var jFrmSaveProductId = new FormData(frmSaveProductId);
 		var ajax = new XMLHttpRequest();
 		ajax.onreadystatechange = function() {
 		if (this.readyState == 4 && this.status == 200) {
@@ -230,15 +231,33 @@ console.log("It's working!");
 				var productId = e.target.getAttribute("data-productId")
 				editProductBox.style.display = "flex";
 				console.log(productId);
-				var sid = JSON.stringify(productId);
-
+				jFrmSaveProductId.append( "id", productId );
+				console.log(this.responseText);
 			}
 		}
 		}
-		ajax.open( "POST", "api-update-products.php", true);
-		
-		ajax.send( {productId: sid});
+		ajax.open( "POST", "api-update-product.php", true);
+		ajax.send(jFrmSaveProductId);
 	
+	});
+
+	//DELETE A PRODUCT! 
+	var jFrmDeleteProduct = new FormData( frmDeleteProduct );
+    document.addEventListener("click", function(e){
+    	var productDataId = e.target.getAttribute("data-productId")
+    	jFrmDeleteProduct.append( "id", productDataId );
+
+    	var ajax = new XMLHttpRequest();
+		ajax.onreadystatechange = function() {
+		if (this.readyState == 4 && this.status == 200) {
+	    	if (e.target.className === "btnDeleteProduct") {
+	    		var parent = e.target.parentElement;
+	    		parent.remove();
+			}
+		}
+	};
+		ajax.open( "POST", "api-delete-product.php", true);
+		ajax.send(jFrmDeleteProduct);
 	});
 
 	 
