@@ -167,6 +167,7 @@
 					<input type="text"  id="txtAddUserLastname" name="txtUserLastnameSU" placeholder="Lastname"></input>
 					<input type="email"  id="txtAddUserEmail" name="txtUserEmailSU" placeholder="Email"></input>
 					<input type="password"  id="txtAddUserPassword" name="txtUserPasswordSU" placeholder="Password"></input>
+					Editor<input type="checkbox" name="userRole" id="userRole" value="editor"></input>
 					<input type="file" name="fileUserImage"></input>
 					<button type="button" id="btnAddUser">Add new user</button>
 			</form>
@@ -180,14 +181,17 @@
 
 		<div class="container" id="productList">
 			
-			
-			<div class="item">
-				<h3>Hello</h3>
-				<img src="images/shoe1.png">
-				<p>This is a quick description</p>
-			</div>
 		
 		</div>
+
+		<div " id="newsletter">
+			<h4>Sign up for our awesome weekly newsletter!</h4>
+			<form id="frmSignUpNewsLetter">
+				<input type="text" name="newsLetterSignUp" id="newsLetterSignUp">
+				<button id="btnSignUpNewsLetter">Sign me up!</button>
+			</form>
+		</div>
+
 	</div>
 
 	<div id="addProductPage" class="page">

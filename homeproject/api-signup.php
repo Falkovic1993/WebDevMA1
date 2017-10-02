@@ -7,6 +7,12 @@
 	$sFileName = 'userimage-'.uniqid().'.'.$sFileExtension;
 	$sSaveFileTo = $sFolder.$sFileName;
 	move_uploaded_file($_FILES['fileUserImage']['tmp_name'], $sSaveFileTo);
+
+	if (empty($_POST['userRole'])) {
+		$userRole = "normalUser";
+	} else {
+		$userRole = $_POST['userRole'];
+	}
 	
 	// Get all information on the user and save it as an 
 	$jNewUser = json_decode('{}');
@@ -15,6 +21,7 @@
 	$jNewUser->lastname = $_POST['txtUserLastnameSU'];
 	$jNewUser->email = $_POST['txtUserEmailSU'];
 	$jNewUser->password = $_POST['txtUserPasswordSU'];
+	$jNewUser->role = $userRole;
 	$jNewUser->image = $sFolder.$sFileName;
 
 	// Get the old users from our data file and decode them into an json object

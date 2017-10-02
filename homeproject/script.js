@@ -109,6 +109,19 @@ console.log("It's working!");
 	});
 }
 
+	// SIGN UP USERS TO NEWSLETTER
+	btnSignUpNewsLetter.addEventListener("click", function(){
+		var ajax = new XMLHttpRequest();
+		ajax.onreadystatechange = function() {
+			if (this.readyState == 4 && this.status == 200) {
+				console.log(this.responseText);
+			};
+		};
+		ajax.open( "POST", "api-signup-newsletter.php", true);
+		var jFrmNewsLetterSignUp = new FormData( frmSignUpNewsLetter );
+		ajax.send(jFrmNewsLetterSignUp);
+	});
+
 	//SHOW USERS 
 	btnUserPage.addEventListener("click", function(){
 		var ajax = new XMLHttpRequest();
@@ -181,13 +194,14 @@ console.log("It's working!");
 				productList.innerHTML = "";
 				for ( i = 0 ; i < aProducts.length; i++) {
 					// GET THE PRODUCT DATA
+					var productId = aProducts[i].id;
 					var productName = aProducts[i].name;
 					var productPrice = aProducts[i].price;
 					var productQuantity = aProducts[i].quantity;
 					var productDescription = aProducts[i].description;
 					var productImage = aProducts[i].image;
 					sDivProductInfo = "<div class='item'><h3>" + productName +"</h3>" + "<img src='"+productImage+"'>" + "<br>" + productPrice +
-					 "<br>" + productDescription + "<br>";
+					 "<br>" + productDescription + "<br> <button class='btnBuyProduct' data-buyId="+productId+">BUY</Button>";
 					productList.insertAdjacentHTML('beforeend', sDivProductInfo);
 				};
 			};
@@ -260,4 +274,41 @@ console.log("It's working!");
 		ajax.send(jFrmDeleteProduct);
 	});
 
-	 
+	 // DESKTOP NOTIFICATION
+
+		function notifyMe() {
+	  if (!("Notification" in window)) {
+	    alert("This browser does not support system notifications");
+	  }
+	  else if (Notification.permission === "granted") {
+	    notify();
+	  }
+
+	  else if (Notification.permission !== 'denied') {
+	    Notification.requestPermission(function (permission) {
+	      if (permission === "granted") {
+	        notify();
+	      }
+	    });
+	  }
+	  
+	  function notify() {
+	    var notification = new Notification('Thanks for buying a product!', {
+	      icon: 'http://www.readersdigest.ca/wp-content/uploads/2011/01/4-ways-cheer-up-depressed-cat.jpg',
+	      body: "View more awesome products here!",
+	    });
+
+	    notification.onclick = function () {
+	      window.open("google.dk");      
+	    };
+	    setTimeout(notification.close.bind(notification), 5000); 
+	  }
+	}
+
+		document.addEventListener("click", function(e){
+			if (e.target.className === "btnBuyProduct") {
+				console.log("buy");
+				notifyMe();
+			};
+		});
+

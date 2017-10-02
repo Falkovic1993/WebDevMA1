@@ -156,6 +156,12 @@ body {
     transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
 }
 
+#newsletter {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
 .input-group {
 	display: table;
 	position: relative;
