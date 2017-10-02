@@ -212,7 +212,7 @@ console.log("It's working!");
 					var productDescription = aProducts[i].description;
 					var productImage = aProducts[i].image;
 					sDivProductInfo = "<div class='productview'><p>" + productName +"</p>" + "<p>" + productQuantity +"</p><p>" + productPrice +"</p><p>"
-					 + productDescription + "</p><img src='"+productImage+"'> <button class='btnEditProduct' data-productId="+productId+">Update</button><button class='btnDeleteProduct' data-productId="+productId+">Delete</button>"; 
+					 + productDescription + "</p><img src='"+productImage+"'> <button class='btnEditProduct' data-productId="+productId+">Update</button>"+"<button class='btnDeleteProduct' data-productId="+productId+">Delete</button>"; 
 					productOverview.insertAdjacentHTML('beforeend', sDivProductInfo);
 				};
 			};
@@ -242,11 +242,11 @@ console.log("It's working!");
 	});
 
 	//DELETE A PRODUCT! 
-	var jFrmDeleteProduct = new FormData( frmDeleteProduct );
+	
     document.addEventListener("click", function(e){
+    	var jFrmDeleteProduct = new FormData( frmDeleteProduct );
     	var productDataId = e.target.getAttribute("data-productId")
     	jFrmDeleteProduct.append( "id", productDataId );
-
     	var ajax = new XMLHttpRequest();
 		ajax.onreadystatechange = function() {
 		if (this.readyState == 4 && this.status == 200) {
