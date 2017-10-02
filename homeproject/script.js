@@ -309,6 +309,8 @@ console.log("It's working!");
 			if (e.target.className === "btnBuyProduct") {
 				console.log("buy");
 				notifyMe();
+				var oSound = new Audio('sound/cash.mp3')
+				oSound.play();
 			};
 		});
 
