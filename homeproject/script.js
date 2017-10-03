@@ -253,7 +253,7 @@ console.log("It's working!");
             document.getElementsByClassName("edit-product-desc")[0].innerHTML = productDesc;
         }
 
-
+	});
 
 		/*
 		var jFrmSaveProductId = new FormData(frmSaveProductId);
@@ -273,20 +273,20 @@ console.log("It's working!");
 		ajax.send(jFrmSaveProductId);
 		*/
 	
-	});
+	
 
 	//DELETE A PRODUCT! 
 	
     document.addEventListener("click", function(e){
     	var jFrmDeleteProduct = new FormData( frmDeleteProduct );
-    	var productDataId = e.target.getAttribute("data-productId");
-    	jFrmDeleteProduct.append( "id", productDataId );
     	var ajax = new XMLHttpRequest();
 		ajax.onreadystatechange = function() {
 		if (this.readyState == 4 && this.status == 200) {
 	    	if (e.target.className === "btnDeleteProduct") {
 	    		var parent = e.target.parentElement;
 	    		parent.remove();
+	    		var productDataId = e.target.getAttribute("data-productId");
+    			jFrmDeleteProduct.append( "id", productDataId );
 			}
 		}
 	};
@@ -294,8 +294,8 @@ console.log("It's working!");
 		ajax.send(jFrmDeleteProduct);
 	});
 
-	 // DESKTOP NOTIFICATION
 
+	 // DESKTOP NOTIFICATION
 		function notifyMe() {
 	  if (!("Notification" in window)) {
 	    alert("This browser does not support system notifications");
