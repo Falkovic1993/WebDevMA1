@@ -243,12 +243,12 @@
 
 
 			<form id="frmEditProduct">
-					<h4 class="editProducth4">Product ID: <?php  echo $sProductId; ?></h4>
-					<h4 class="editProducth4">Product Name: <?php  echo $sProductName; ?><input type="text" name="editProductName"></h4>
-					<h4 class="editProducth4">Quantity: <?php  echo $sProductQuantity; ?><input type="text" name="editProductQuantity"></h4>
-					<h4 class="editProducth4">Price: <?php  echo $sProductPrice; ?><input type="text" name="editProductPrice"></h4>
-					<h4 class="editProducth4">Description: <?php  echo $sProductDescription; ?><input type="text" name="editProductDescription"></h4>
-					<h4 class="editProducth4">Product Image: <img id="productImage" src="<?php echo $sProductImage; ?>"><input type="file" name="edutProductImage"></input></h4>
+					<h4 class="editProducth4">Product ID: <span class="edit-product-id"></span></h4>
+					<h4 class="editProducth4">Product Name: <span class="edit-product-name"></span><input type="text" name="editProductName"></h4>
+					<h4 class="editProducth4">Quantity: <span class="edit-product-qty"></span><input type="text" name="editProductQuantity"></h4>
+					<h4 class="editProducth4">Price: <span class="edit-product-price"></span><input type="text" name="editProductPrice"></h4>
+					<h4 class="editProducth4">Description: <span class="edit-product-desc"></span><input type="text" name="editProductDescription"></h4>
+					<h4 class="editProducth4">Product Image: <img id="productImage" src="#"><input type="file" name="edutProductImage"></input></h4>
 					<button type="button" id="btnEditProduct">Edit</button>
 				</form>
 		</div>

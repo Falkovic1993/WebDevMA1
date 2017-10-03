@@ -225,8 +225,8 @@ console.log("It's working!");
 					var productQuantity = aProducts[i].quantity;
 					var productDescription = aProducts[i].description;
 					var productImage = aProducts[i].image;
-					sDivProductInfo = "<div class='productview'><p>" + productName +"</p>" + "<p>" + productQuantity +"</p><p>" + productPrice +"</p><p>"
-					 + productDescription + "</p><img src='"+productImage+"'> <button class='btnEditProduct' data-productId="+productId+">Update</button>"+"<button class='btnDeleteProduct' data-productId="+productId+">Delete</button>"; 
+					sDivProductInfo = "<div class='productview product-" + productId + "'><p class='product-name'>" + productName +"</p>" + "<p class='product-qty'>" + productQuantity +"</p><p class='product-price'>" + productPrice +"</p><p class='product-desc'>"
+					 + productDescription + "</p><img src='"+productImage+"'> <button class='btnEditProduct' data-productId="+productId+">Update</button>"+"<button class='btnDeleteProduct' data-productId="+productId+">Delete</button>";
 					productOverview.insertAdjacentHTML('beforeend', sDivProductInfo);
 				};
 			};
@@ -237,6 +237,25 @@ console.log("It's working!");
 
 	// OPEN THE UPDATE  BOX // THIS NEED TO BE FIXED!!!!!
 	document.addEventListener("click", function(e){
+        if (e.target.className === "btnEditProduct") {
+            editProductBox.style.display = "flex";
+            var productId = e.target.getAttribute("data-productId");
+            var product = document.getElementsByClassName("product-" + productId)[0];
+            var productName = product.getElementsByClassName("product-name")[0].innerHTML;
+            var productQty = product.getElementsByClassName("product-qty")[0].innerHTML;
+            var productPrice = product.getElementsByClassName("product-price")[0].innerHTML;
+            var productDesc = product.getElementsByClassName("product-desc")[0].innerHTML;
+
+            document.getElementsByClassName("edit-product-id")[0].innerHTML = productId;
+            document.getElementsByClassName("edit-product-name")[0].innerHTML = productName;
+            document.getElementsByClassName("edit-product-qty")[0].innerHTML = productQty;
+            document.getElementsByClassName("edit-product-price")[0].innerHTML = productPrice;
+            document.getElementsByClassName("edit-product-desc")[0].innerHTML = productDesc;
+        }
+
+
+
+		/*
 		var jFrmSaveProductId = new FormData(frmSaveProductId);
 		var ajax = new XMLHttpRequest();
 		ajax.onreadystatechange = function() {
@@ -252,6 +271,7 @@ console.log("It's working!");
 		}
 		ajax.open( "POST", "api-update-product.php", true);
 		ajax.send(jFrmSaveProductId);
+		*/
 	
 	});
 
@@ -259,7 +279,7 @@ console.log("It's working!");
 	
     document.addEventListener("click", function(e){
     	var jFrmDeleteProduct = new FormData( frmDeleteProduct );
-    	var productDataId = e.target.getAttribute("data-productId")
+    	var productDataId = e.target.getAttribute("data-productId");
     	jFrmDeleteProduct.append( "id", productDataId );
     	var ajax = new XMLHttpRequest();
 		ajax.onreadystatechange = function() {
