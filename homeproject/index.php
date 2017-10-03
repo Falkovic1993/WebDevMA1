@@ -146,12 +146,7 @@
 	<!-- USERPAGE START HERE -->
 	<div id="userPage" class="page">
 		<div class="container">
-			<div id="userList">
-				
-				<!-- THIS FORM IS USED TO SENT DATA ABOUT THE USER WHEN WE DELETE IT -->
-				<form id="frmDeleteUser">
-				</form>
-			</div>
+			
 		</div>
 	</div>
 
@@ -172,6 +167,14 @@
 					<button type="button" id="btnAddUser">Add new user</button>
 			</form>
 		</div>
+
+		<div id="userList">
+				
+				<!-- THIS FORM IS USED TO SENT DATA ABOUT THE USER WHEN WE DELETE IT -->
+				<form id="frmDeleteUser">
+				</form>
+			</div>
+
 		</div>
 	</div>
 
@@ -196,16 +199,7 @@
 
 	<div id="addProductPage" class="page">
 	
-	<?php 
-				if ( isset($_SESSION['updateProduct']) ) {
-					$sProductId = $_SESSION['productId'];
-					$sProductName = $_SESSION['productName'];
-					$sProductQuantity = $_SESSION['productQuantity'];
-					$sProductPrice = $_SESSION['productPrice'];
-					$sProductDescription = $_SESSION['productDescription'];
-					$sProductImage = $_SESSION['productImage'];
-				
-		};	?>
+	
 
 		<div class="contanier">
 		<div id="addProductBox">
@@ -234,22 +228,18 @@
 	
 		<div id="editProductBox">
 			
-			<!--THIS FOR IS TO SEND THE PRODUCT ID TO THE SERVER -->
-			<form id="frmSaveProductId">
-			</form>
 
 			<form id="frmDeleteProduct">
 			</form>
-
-
-			<form id="frmEditProduct">
-					<h4 class="editProducth4">Product ID: <span class="edit-product-id"></span></h4>
-					<h4 class="editProducth4">Product Name: <span class="edit-product-name"></span><input type="text" name="editProductName"></h4>
-					<h4 class="editProducth4">Quantity: <span class="edit-product-qty"></span><input type="text" name="editProductQuantity"></h4>
-					<h4 class="editProducth4">Price: <span class="edit-product-price"></span><input type="text" name="editProductPrice"></h4>
-					<h4 class="editProducth4">Description: <span class="edit-product-desc"></span><input type="text" name="editProductDescription"></h4>
-					<h4 class="editProducth4">Product Image: <img id="productImage" src="#"><input type="file" name="edutProductImage"></input></h4>
-					<button type="button" id="btnEditProduct">Edit</button>
+	
+				<form id="frmEditProduct">
+						<h4 class="editProducth4">Product ID: <span class="edit-product-id"></span></h4>
+						<h4 class="editProducth4">Product Name: <span class="edit-product-name"></span><input type="text" name="editProductName" id="editProductName"></h4>
+						<h4 class="editProducth4">Quantity: <span class="edit-product-qty"></span><input type="text" name="editProductQuantity" id="editProductQuantity"></h4>
+						<h4 class="editProducth4">Price: <span class="edit-product-price"></span><input type="text" name="editProductPrice"></h4>
+						<h4 class="editProducth4">Description: <span class="edit-product-desc"></span><input type="text" name="editProductDescription"></h4>
+						<h4 class="editProducth4">Product Image: <h4 class="editProductImageh4"><h4><input type="file" name="editProductImage"></input></h4>
+						<button type="button" id="btnEditProduct">Edit</button>
 				</form>
 		</div>
 	</div>

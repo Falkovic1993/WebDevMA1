@@ -9,7 +9,7 @@
 	for ($i = 0; $i < count($ajProductList); $i++){
 		if ($ajProductList[$i]->id == $productId){
 		
-			//var_dump($ajProductList);
+			var_dump($ajProductList);
 			unlink($ajProductList[$i]->image);
 			unset($ajProductList[$i]);
 			//var_dump($ajProductList);
@@ -29,7 +29,7 @@
 	*/
 	$sProductList = json_encode($ajProductList);
 
-	//echo $sProductList;
+	echo $sProductList;
 	file_put_contents('data-products.txt', $sProductList);
 
 	echo "Product has been deleted";

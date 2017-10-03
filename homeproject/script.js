@@ -67,12 +67,12 @@ console.log("It's working!");
 			if(this.readyState == 4 && this.status == 200) {
 				console.log(this.responseText);
 				window.location.reload();
-			};
-		}
+			}
+		};
 		ajax.open( "POST", "api-update-user.php", true );
 	    var jFrmUpdate = new FormData(frmUpdateUser);
 	    ajax.send(jFrmUpdate);
-	})
+	});
 
 	// LOGIN TO THE SITE! 
 	btnLogin.addEventListener("click", function(){
@@ -154,9 +154,8 @@ console.log("It's working!");
 	//DELETE A USER 
 	var jFrmDeleteUser = new FormData( frmDeleteUser );
     document.addEventListener("click", function(e){
-    	var userDataId = e.target.getAttribute("data-userId")
+    	var userDataId = e.target.getAttribute("data-userId");
     	jFrmDeleteUser.append( "id", userDataId );
-
     	var ajax = new XMLHttpRequest();
 		ajax.onreadystatechange = function() {
 		if (this.readyState == 4 && this.status == 200) {
@@ -216,37 +215,39 @@ console.log("It's working!");
 	});
 
     //SHOW PRODUCTS FOR OUR EDITOR (WHEN YOUR LOGGED INTO THE SITE)
-	  btnAddProductPage.addEventListener("click", function(){
-		var ajax = new XMLHttpRequest();
-		ajax.onreadystatechange = function() {
-			if (this.readyState == 4 && this.status == 200) {
-				var aProducts = JSON.parse(this.responseText);
-				productOverview.innerHTML = "";
-				for ( i = 0 ; i < aProducts.length; i++) {
-					// GET THE PRODUCT DATA
-					var productId = aProducts[i].id;
-					var productName = aProducts[i].name;
-					var productPrice = aProducts[i].price;
-					var productQuantity = aProducts[i].quantity;
-					var productDescription = aProducts[i].description;
-					var productImage = aProducts[i].image;
-					sDivProductInfo = "<div class='productview product-" + productId + "'>\
-										<p class='product-name'>" + productName +"</p>" + "\
-										<p class='product-qty'>" + productQuantity +"</p>\
-										<p class='product-price'>" + productPrice +"</p>\
-										<p class='product-desc'>"+ productDescription + "</p>\
-										<img src='"+productImage+"'>\
-										<button class='btnEditProduct' data-productId="+productId+">Update</button>"+"\
-										<button class='btnDeleteProduct' data-productId="+productId+">Delete</button>";
-					productOverview.insertAdjacentHTML('beforeend', sDivProductInfo);
+    document.addEventListener("click", function(e) {
+    	if ( e.target.id === "btnAddProductPage") {
+			var ajax = new XMLHttpRequest();
+			ajax.onreadystatechange = function() {
+				if (this.readyState == 4 && this.status == 200) {
+					var aProducts = JSON.parse(this.responseText);
+					productOverview.innerHTML = "";
+					for ( i = 0 ; i < aProducts.length; i++) {
+							// GET THE PRODUCT DATA
+							var productId = aProducts[i].id;
+							var productName = aProducts[i].name;
+							var productPrice = aProducts[i].price;
+							var productQuantity = aProducts[i].quantity;
+							var productDescription = aProducts[i].description;
+							var productImage = aProducts[i].image;
+							sDivProductInfo = "<div class='productview product-" + productId + "'>\
+												<p class='product-name'>" + productName +"</p>" + "\
+												<p class='product-qty'>" + productQuantity +"</p>\
+												<p class='product-price'>" + productPrice +"</p>\
+												<p class='product-desc'>"+ productDescription + "</p>\
+												<img src='"+productImage+"'>\
+												<button class='btnEditProduct' data-productId="+productId+">Update</button>"+"\
+												<button class='btnDeleteProduct' data-productId="+productId+">Delete</button>";
+							productOverview.insertAdjacentHTML('beforeend', sDivProductInfo);
+						};
+					};
 				};
-			};
+				ajax.open( "GET", "api-show-products.php", true);
+				ajax.send();
+			
 		};
-		ajax.open( "GET", "api-show-products.php", true);
-		ajax.send();
 	});
-
-	// OPEN THE UPDATE PRODUCT BOX // 
+	// OPEN THE UPDATE PRODUCT BOX INSIDE THE BACKEND. 
 	document.addEventListener("click", function(e){
         if (e.target.className === "btnEditProduct") {
             editProductBox.style.display = "flex";
@@ -257,6 +258,16 @@ console.log("It's working!");
             var productPrice = product.getElementsByClassName("product-price")[0].innerHTML;
             var productDesc = product.getElementsByClassName("product-desc")[0].innerHTML;
 
+            // SHOWING THE PRODUCT IMAGE! 
+            var productImage = "images/products/productimage-"+productId;
+           	// console.log(productImage);
+            var sImageDiv = "<img id='productImage' src='"+productImage+".jpg'>"
+            //console.log(sImageDiv);
+            var editImage = document.getElementsByClassName("editProductImageh4")[0];
+            editImage.innerHTML = "";
+            //console.log(editImage);
+            editImage.insertAdjacentHTML("afterbegin", sImageDiv );
+
             document.getElementsByClassName("edit-product-id")[0].innerHTML = productId;
             document.getElementsByClassName("edit-product-name")[0].innerHTML = productName;
             document.getElementsByClassName("edit-product-qty")[0].innerHTML = productQty;
@@ -265,42 +276,56 @@ console.log("It's working!");
         }
 	});
 
-		/*
-		var jFrmSaveProductId = new FormData(frmSaveProductId);
-		var ajax = new XMLHttpRequest();
-		ajax.onreadystatechange = function() {
-		if (this.readyState == 4 && this.status == 200) {
-			if (e.target.className === "btnEditProduct") {
-				var productId = e.target.getAttribute("data-productId")
-				editProductBox.style.display = "flex";
-				console.log(productId);
-				jFrmSaveProductId.append( "id", productId );
-				console.log(this.responseText);
-			}
-		}
-		}
-		ajax.open( "POST", "api-update-product.php", true);
-		ajax.send(jFrmSaveProductId);
-		*/
+	editProductBox.addEventListener("click",function(e){
+		
+		if (e.target.id === "editProductBox") {
+			editProductBox.style.display = "none";
+		} else {
+		
+	}
+	});
+
 	
 	//DELETE A PRODUCT! 
-	
+	var jFrmDeleteProduct = new FormData( frmDeleteProduct );
     document.addEventListener("click", function(e){
-    	var jFrmDeleteProduct = new FormData( frmDeleteProduct );
-    	var ajax = new XMLHttpRequest();
-		ajax.onreadystatechange = function() {
-		if (this.readyState == 4 && this.status == 200) {
-	    	if (e.target.className === "btnDeleteProduct") {
+    	if (e.target.className === "btnDeleteProduct"){
+	    	var productDataId = e.target.getAttribute("data-productId");
+		    jFrmDeleteProduct.append( "id", productDataId );
+	    	var ajax = new XMLHttpRequest();
+			ajax.onreadystatechange = function() {
+			if (this.readyState == 4 && this.status == 200) {
+	    		console.log(productDataId);
 	    		var parent = e.target.parentElement;
 	    		parent.remove();
-	    		var productDataId = e.target.getAttribute("data-productId");
-    			jFrmDeleteProduct.append( "id", productDataId );
 			}
 		}
-	};
 		ajax.open( "POST", "api-delete-product.php", true);
 		ajax.send(jFrmDeleteProduct);
+	};
 	});
+
+    // UPDATE/EDIT THE PRODUCT IN BACKEND. 
+
+    btnEditProduct.addEventListener("click", function(e){
+    	var jFrmUpdateProduct = new FormData( frmEditProduct );
+		var productId = e.target.parentElement;
+		productId = document.getElementsByClassName("edit-product-id")[0].innerHTML;
+		console.log(productId);
+		jFrmUpdateProduct.append("productId", productId );
+
+    	var ajax = new XMLHttpRequest();
+			ajax.onreadystatechange = function() {
+			if (this.readyState == 4 && this.status == 200) {
+		    	console.log("UPATE ME");
+			}
+		}
+    	ajax.open( "POST", "api-update-product.php", true);
+		ajax.send(jFrmUpdateProduct);
+    });
+
+
+
 
 
 	 // DESKTOP NOTIFICATION
@@ -332,7 +357,7 @@ console.log("It's working!");
 	    setTimeout(notification.close.bind(notification), 5000); 
 	  }
 	}
-
+		// ADD SOUND EFFECT TO BUY BUTTON AND FIRE THE DESKTOP NOTIFICATION! 
 		document.addEventListener("click", function(e){
 			if (e.target.className === "btnBuyProduct") {
 				console.log("buy");

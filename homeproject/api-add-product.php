@@ -1,14 +1,16 @@
 <?php
 	
+	$productId = uniqid();
+
 	$sFileExtension = pathinfo($_FILES['fileProductImage']['name'], PATHINFO_EXTENSION);
 	$sFolder = 'images/products/';
-	$sFileName = 'productimage-'.uniqid().'.'.$sFileExtension;
+	$sFileName = 'productimage-'.$productId.'.'.$sFileExtension;
 	$sSaveFileTo = $sFolder.$sFileName;
 	move_uploaded_file($_FILES['fileProductImage']['tmp_name'], $sSaveFileTo);
 	
 	// Get all information on the user and save it as an 
 	$jNewProduct = json_decode('{}');
-	$jNewProduct->id = uniqid();
+	$jNewProduct->id = $productId;
 	$jNewProduct->name = $_POST['txtAddProductName'];
 	$jNewProduct->price = $_POST['txtAddProductPrice'];
 	$jNewProduct->quantity = $_POST['txtAddProductQuantity'];
