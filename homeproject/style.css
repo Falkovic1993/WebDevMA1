@@ -32,7 +32,7 @@ body {
 }
 
 .navigation span {
-	flex:1;
+	width: 15vw;
 	align-self: center;
 	text-align: center;
 }
@@ -40,9 +40,13 @@ body {
 .loginNav {
 	display: none;
 	flex-direction: column;
-	width: 25%;
+	width: 15vw;
+	height: 100vh;
+	z-index: 3;
+	position: absolute;
+	float:left;
 	border-right: 1px solid;
-	justify-content: space-around;
+	justify-content: center;
 }
 
 .btn-default {
@@ -81,10 +85,10 @@ body {
 #addUserPage {
 	display: none;
 	position: absolute;
-	justify-content: center;
 	width: 100vw;
 	height: 100vh;
-	background-color:yellow;
+	background-color:green;
+	flex-direction: column;
 }
 
 #productPage {
@@ -114,19 +118,28 @@ body {
 	background-color:yellow;
 }
 
+.pagelogin {
+	margin-left: 15vw;
+}
+
 .container {
 	display: flex;
-	flex-wrap: wrap;
 	justify-content: center;
-	width: 960px;
-	background-color:red;
-	padding: 10px 10px;
-	margin:0 auto;
+	width: 75vw;
+	
 }
+
+#user
 
 #frmAddUser {
 	display: flex;
-	flex-direction: column;
+	flex-direction: row;
+}
+
+#addUserBox {
+	display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 #frmLogin {
@@ -277,20 +290,32 @@ form input {
 	margin:10px;
 }
 
-.userList {
+#userList {
 	display: flex;
 	width: 100%;
 	border-bottom: 1px solid;
 	flex-direction: column;
-	padding-top:50px;
+	padding-top:25px;
 }
 
 .user{
-	flex-direction: column;
 	display: flex;
-	width: 100%;
-	border-bottom: 1px solid;
-	padding:5px 0px;
+    width: 85%;
+    align-items: center;
+    justify-content: space-around;
+    border-bottom: 1px solid black;
+    padding: 5px 0px;
+}
+.user p {
+	display: flex;
+    align-items: center;
+    width: 15%;
+    height: 25px;
+    font-size: 16px;
+}
+
+.user h3 {
+	margin-right: 25px;
 }
 
 #addProductBox {

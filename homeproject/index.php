@@ -114,7 +114,7 @@
 
 	</div>
 	<!-- PROFIL PAGE! -->
-	<div id="profilePage" class="page">
+	<div id="profilePage" class="page pagelogin">
 
 		<div class="boxProfilPage">
 			<h3>Profile Page</h3>
@@ -146,13 +146,20 @@
 	<!-- USERPAGE START HERE -->
 	<div id="userPage" class="page">
 		<div class="container">
+
+		<!-- 	<div id="userList">
+			
+			THIS FORM IS USED TO SENT DATA ABOUT THE USER WHEN WE DELETE IT
+			<form id="frmDeleteUser">
+			</form>
+		</div> -->
 			
 		</div>
 	</div>
 
 	<!-- ADD USER PAGE WHEN LOGGED IN -->
 
-	<div id="addUserPage" class="page">
+	<div id="addUserPage" class="page pagelogin">
 		<div class="contanier">
 
 		<div id="addUserBox">
@@ -168,9 +175,9 @@
 			</form>
 		</div>
 
-		<div id="userList">
+			<div id="userList">
 				
-				<!-- THIS FORM IS USED TO SENT DATA ABOUT THE USER WHEN WE DELETE IT -->
+				THIS FORM IS USED TO SENT DATA ABOUT THE USER WHEN WE DELETE IT
 				<form id="frmDeleteUser">
 				</form>
 			</div>
@@ -197,7 +204,7 @@
 
 	</div>
 
-	<div id="addProductPage" class="page">
+	<div id="addProductPage" class="page pagelogin">
 	
 	
 

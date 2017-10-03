@@ -123,7 +123,7 @@ console.log("It's working!");
 	});
 
 	//SHOW USERS 
-	btnUserPage.addEventListener("click", function(){
+	btnAddUserPage.addEventListener("click", function(){
 		var ajax = new XMLHttpRequest();
 		ajax.onreadystatechange = function() {
 			if (this.readyState == 4 && this.status == 200) {
@@ -141,8 +141,14 @@ console.log("It's working!");
 					var userImage = aUsers[i].image;
 					//console.log(userId, userName, userLastName, userEmail, userPassword);
 					//PUT THE USER DATA TOGETHER AND PUT IT INTO A DIV SO WE CAN SHOW IT.
-					sDivUserInfo = "<div class='user' id=" + userId + "><h3>" + userId +"</h3>" + userName + "<br>" + userLastName +
-					 "<br>" + userEmail + "<br>" + userPassword + "<br> <button class='btnDeleteUsers' data-userId="+userId+">Delete</button></div>";
+					sDivUserInfo = "<div class='user' id=" + userId + ">\
+					<h3>" + userId +"</h3>\
+					<p class='puser'>" + userName + "<br></p>\
+					<p class='puser'>" + userLastName +"<br></p>\
+					<p class='puser'>" + userEmail + "<br></p>\
+					<p class='puser'>" + userPassword + "<br></p>\
+					<button class='btnDeleteUsers' data-userId="+userId+">Delete</button></div>";
+
 					userList.insertAdjacentHTML('beforeend', sDivUserInfo);
 				};
 			};
