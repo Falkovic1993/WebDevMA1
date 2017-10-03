@@ -225,8 +225,14 @@ console.log("It's working!");
 					var productQuantity = aProducts[i].quantity;
 					var productDescription = aProducts[i].description;
 					var productImage = aProducts[i].image;
-					sDivProductInfo = "<div class='productview product-" + productId + "'><p class='product-name'>" + productName +"</p>" + "<p class='product-qty'>" + productQuantity +"</p><p class='product-price'>" + productPrice +"</p><p class='product-desc'>"
-					 + productDescription + "</p><img src='"+productImage+"'> <button class='btnEditProduct' data-productId="+productId+">Update</button>"+"<button class='btnDeleteProduct' data-productId="+productId+">Delete</button>";
+					sDivProductInfo = "<div class='productview product-" + productId + "'>\
+										<p class='product-name'>" + productName +"</p>" + "\
+										<p class='product-qty'>" + productQuantity +"</p>\
+										<p class='product-price'>" + productPrice +"</p>\
+										<p class='product-desc'>"+ productDescription + "</p>\
+										<img src='"+productImage+"'>\
+										<button class='btnEditProduct' data-productId="+productId+">Update</button>"+"\
+										<button class='btnDeleteProduct' data-productId="+productId+">Delete</button>";
 					productOverview.insertAdjacentHTML('beforeend', sDivProductInfo);
 				};
 			};
@@ -235,7 +241,7 @@ console.log("It's working!");
 		ajax.send();
 	});
 
-	// OPEN THE UPDATE  BOX // THIS NEED TO BE FIXED!!!!!
+	// OPEN THE UPDATE PRODUCT BOX // 
 	document.addEventListener("click", function(e){
         if (e.target.className === "btnEditProduct") {
             editProductBox.style.display = "flex";
@@ -252,7 +258,6 @@ console.log("It's working!");
             document.getElementsByClassName("edit-product-price")[0].innerHTML = productPrice;
             document.getElementsByClassName("edit-product-desc")[0].innerHTML = productDesc;
         }
-
 	});
 
 		/*
@@ -273,8 +278,6 @@ console.log("It's working!");
 		ajax.send(jFrmSaveProductId);
 		*/
 	
-	
-
 	//DELETE A PRODUCT! 
 	
     document.addEventListener("click", function(e){
