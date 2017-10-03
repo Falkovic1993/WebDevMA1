@@ -171,13 +171,14 @@ console.log("It's working!");
 	});
 
     // ADD A PRODUCT
-    btnAddProduct.addEventListener("click", function(){
+    btnAddProduct.addEventListener("click", function(event){
 			console.log("X");
 		var ajax = new XMLHttpRequest();
 			ajax.onreadystatechange = function() {
 				if(this.readyState == 4 && this.status == 200) {
 				  	var sDataFromServer = this.responseText;
          			console.log("Response: ",sDataFromServer);
+         			
 				}
 			}
 			ajax.open( "POST", "api-add-product.php", true );
@@ -200,8 +201,12 @@ console.log("It's working!");
 					var productQuantity = aProducts[i].quantity;
 					var productDescription = aProducts[i].description;
 					var productImage = aProducts[i].image;
-					sDivProductInfo = "<div class='item'><h3>" + productName +"</h3>" + "<img src='"+productImage+"'>" + "<br>" + productPrice +
-					 "<br>" + productDescription + "<br> <button class='btnBuyProduct' data-buyId="+productId+">BUY</Button>";
+					sDivProductInfo = "<div class='item'>\
+										<h3>" + productName +"</h3>" + "\
+										<img src='"+productImage+"'>" + "\
+										<br>" + productPrice + "\
+										<br>" + productDescription + "\
+										<br> <button class='btnBuyProduct' data-buyId="+productId+">BUY</Button>";
 					productList.insertAdjacentHTML('beforeend', sDivProductInfo);
 				};
 			};
