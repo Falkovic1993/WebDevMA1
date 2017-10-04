@@ -15,9 +15,11 @@ body {
 	}
 
 .wrapper {
-	display:flex;
-	background-color: green;
-	margin: 0 auto;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1;
+    background-color: #f1f1f1;
+    flex-direction: column;
 
 }
 
@@ -49,15 +51,7 @@ body {
 	justify-content: center;
 }
 
-.btn-default {
-	background-color: #22333B;
-	color:#F2F4F3;
-	border:none;
-	padding: 15px 20px;
-	 text-align: center;
-    text-decoration: none;
-    font-size:16px;
-}	
+
 
 #frontPage {
 	display: flex;
@@ -73,13 +67,13 @@ body {
 	margin-top: 50px;
 }
 
-#userPage {
+#contactPage {
 	display: none;
 	position: absolute;
 	flex-direction: column;
 	width: 100vw;
 	height: 100vh;
-	background-color:yellow;
+	flex-wrap: wrap;
 }
 
 #addUserPage {
@@ -118,18 +112,54 @@ body {
 	background-color:yellow;
 }
 
+.page {
+	margin-left:0px;
+}
+
 .pagelogin {
 	margin-left: 15vw;
 }
 
 .container {
 	display: flex;
-	justify-content: center;
-	width: 75vw;
-	
+	width: 100vw;
+	flex-wrap: wrap;
 }
 
-#user
+
+#map {
+	width: 50vw;
+	height: 100vh;
+}
+
+#contactInfo {
+	width: 35vw;
+	height: 100vh;
+	background-color: red;
+	display: flex;
+}
+
+.information {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin-top: 100px;
+	padding:0 25px;
+}
+#contactInfo p {
+	margin: 25px 25px;
+	text-align: center;
+}
+
+.pcontactInfo {
+ 	align-self: left;
+ 	margin-top: 10px;
+}
+
+.pcontactInfo span {
+	font-weight: 700;
+	margin-right: 20px;
+}
 
 #frmAddUser {
 	display: flex;
@@ -264,31 +294,10 @@ form input {
 
 .item {
 	background-color:blue;
-	width:calc(33.3333% - 20px);
 	margin:10px;
-	height: 300px;
-	border: 2px solid black;
-	justify-content: center;
-
-}
-
-#userPage #userForm {
-	width: 200px;
-	border-bottom: 1px solid;
-	height: 200px;
-	background-color: #f1f1f1;
 	border: 2px solid black;
 }
 
-#userPage #userForm input {
-	margin: 10px;
-	width: 150px;
-	height: 20px;
-	border-radius: 5px;
-}
-#userPage #userForm button {
-	margin:10px;
-}
 
 #userList {
 	display: flex;

@@ -37,7 +37,7 @@
 						$profilePage = "<button id='btnProfilepage' class='btnMenu' data-showThisPage='profilePage'>Profil</button>";
 						echo $profilePage;
 					}; ?>
-				<button id="btnUserPage" class="btnMenu" data-showThisPage="userPage">User</button>
+				<button id="btnContactPage" class="btnMenu" data-showThisPage="contactPage">Contact</button>
 				<button id="btnProductPage" class="btnMenu" data-showThisPage="productPage">Product</button>
 				<?php 
 					if ( isset($_SESSION['loggedIn']) ) {
@@ -144,16 +144,22 @@
 
 
 	<!-- USERPAGE START HERE -->
-	<div id="userPage" class="page">
+	<div id="contactPage" class="page pagelogin">
 		<div class="container">
 
-		<!-- 	<div id="userList">
-			
-			THIS FORM IS USED TO SENT DATA ABOUT THE USER WHEN WE DELETE IT
-			<form id="frmDeleteUser">
-			</form>
-		</div> -->
-			
+			<div id="map"> </div>
+		
+
+			<div id="contactInfo">
+				<div class="information">
+					<h3>Contact Us!</h3>
+					<p>If you have any questions, regarding the company or our products feel free to contact us at any time. Our information can be form under here.</p>
+					<p class="pcontactInfo"><span class="info">TLF:</span>28917048</p>
+					<p class="pcontactInfo"><span class="info">Email:</span>Emil93falk@hotmail.com</p>
+					<p class="pcontactInfo"><span class="info">Adreess:</span>Vagtelvej 73. ST. TV. </p>
+				</div>
+			</div>
+	
 		</div>
 	</div>
 
@@ -254,8 +260,18 @@
 </div>
 
 
+	
 
 
+	
 	<script type="text/javascript"  src="script.js"></script>
+	<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAE8cywvNMbm14LF_16pGVFAL8TXGw-FkE"> </script>
+
+
+		
+
+	</script>
+
+
 </body>
 </html>

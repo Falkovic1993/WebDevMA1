@@ -79,7 +79,6 @@ console.log("It's working!");
 		//console.log("Z")
 		var ajax = new XMLHttpRequest();
 		ajax.onreadystatechange = function() {
-
 			if(this.readyState == 4 && this.status == 200) {
 			var jDataFromServer = this.responseText;
 			console.log(jDataFromServer);
@@ -372,4 +371,24 @@ console.log("It's working!");
 				oSound.play();
 			};
 		});
+
+		// GOOGLE MAPS 
+		function initMap() {
+        var Lygten = {lat: 55.703935, lng: 12.537669};
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 15,
+          center: Lygten
+        });
+        var marker = new google.maps.Marker({
+          position: Lygten,
+          map: map
+        });
+         
+      }
+
+      // SHOW GOOGLE MAPS WHEN CLICK ON CONTACT PAGE - ELSE IT WONT LOAD BECAUSE HIDDEN PARRENT ELEMENT.
+      btnContactPage.addEventListener("click", function(){
+      	initMap();
+      });
+
 
