@@ -27,11 +27,16 @@ console.log("It's working!");
 	closeSignUp.addEventListener("click", function(){
 		SignUpBox.style.display = "none";
 	});
+	SignUpBox.addEventListener("click",function(e){
+		if (e.target.id === "SignUpBox") {
+			SignUpBox.style.display = "none";
+		} else {	
+	}
+	});
 
 	//SIGN UP USER 
 	btnUserSU.addEventListener("click", function(){
-			console.log("X")
-
+			//console.log("X")
 			var ajax = new XMLHttpRequest();
 			ajax.onreadystatechange = function() {
 				if(this.readyState == 4 && this.status == 200) {
@@ -122,7 +127,8 @@ console.log("It's working!");
 	});
 
 	//SHOW USERS 
-	btnAddUserPage.addEventListener("click", function(){
+	document.addEventListener("click", function(e) {
+		if ( e.target.id === "btnAddUserPage" ) {
 		var ajax = new XMLHttpRequest();
 		ajax.onreadystatechange = function() {
 			if (this.readyState == 4 && this.status == 200) {
@@ -154,6 +160,7 @@ console.log("It's working!");
 		};
 		ajax.open( "GET", "api-show-user.php", true);
 		ajax.send();
+		}
 	});
 
 	//DELETE A USER 
@@ -182,7 +189,6 @@ console.log("It's working!");
 				if(this.readyState == 4 && this.status == 200) {
 				  	var sDataFromServer = this.responseText;
          			console.log("Response: ",sDataFromServer);
-         			
 				}
 			}
 			ajax.open( "POST", "api-add-product.php", true );
@@ -208,8 +214,8 @@ console.log("It's working!");
 					sDivProductInfo = "<div class='item'>\
 										<h3>" + productName +"</h3>" + "\
 										<img src='"+productImage+"'>" + "\
-										<br>" + productPrice + "\
-										<br>" + productDescription + "\
+										<p class='itemInfo'>" + productPrice + ".-</p>"+"\
+										<p class='itemInfo'>" + productDescription + "</p>"+"\
 										<br> <button class='btnBuyProduct' data-buyId="+productId+">BUY</Button>";
 					productList.insertAdjacentHTML('beforeend', sDivProductInfo);
 				};
@@ -280,9 +286,8 @@ console.log("It's working!");
             document.getElementsByClassName("edit-product-desc")[0].innerHTML = productDesc;
         }
 	});
-
+	// ClOSE THE EDIT BOX IF CLIKED OUTSIDE IT. 
 	editProductBox.addEventListener("click",function(e){
-		
 		if (e.target.id === "editProductBox") {
 			editProductBox.style.display = "none";
 		} else {

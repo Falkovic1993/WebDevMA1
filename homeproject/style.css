@@ -20,7 +20,6 @@ body {
     z-index: 1;
     background-color: #f1f1f1;
     flex-direction: column;
-
 }
 
 .navigation {
@@ -51,14 +50,12 @@ body {
 	justify-content: center;
 }
 
-
-
 #frontPage {
 	display: flex;
 	width: 100vw;
 	height: 100vh;
 	z-index:1;
-	background-color:#f1f1f1;
+	background-color:white;
 	flex-direction: column;
 }
 .welcomeBox {
@@ -67,65 +64,26 @@ body {
 	margin-top: 50px;
 }
 
-#contactPage {
+#contactPage, #productPage, #addProductPage, #addUserPage, #profilePage {
 	display: none;
 	position: absolute;
 	flex-direction: column;
 	width: 100vw;
 	height: 100vh;
-	flex-wrap: wrap;
-}
-
-#addUserPage {
-	display: none;
-	position: absolute;
-	width: 100vw;
-	height: 100vh;
-	background-color:green;
-	flex-direction: column;
-}
-
-#productPage {
-	display: none;
-	position: absolute;
-	flex-direction: column;
-	width: 100vw;
-	height: 100vh;
-	background-color:yellow;
-}
-
-#addProductPage {
-	display: none;
-	position: absolute;
-	flex-direction: column;
-	width: 100vw;
-	height: 100vh;
-	background-color:white;
-}
-
-#profilePage {
-	display: none;
-	position: absolute;
-	justify-content: center;
-	width: 100vw;
-	height: 100vh;
-	background-color:yellow;
-}
-
-.page {
-	margin-left:0px;
-}
-
-.pagelogin {
-	margin-left: 15vw;
 }
 
 .container {
 	display: flex;
 	width: 100vw;
 	flex-wrap: wrap;
+	
 }
 
+.containerSideBar {
+	width: 85vw;
+	height: 100vh;
+	margin-left: 15vw;
+}
 
 #map {
 	width: 50vw;
@@ -133,19 +91,18 @@ body {
 }
 
 #contactInfo {
-	width: 35vw;
+	width: 50vw;
 	height: 100vh;
-	background-color: red;
-	display: flex;
 }
 
-.information {
+.information, .contactform {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	margin-top: 100px;
+	margin-top: 50px;
 	padding:0 25px;
 }
+
 #contactInfo p {
 	margin: 25px 25px;
 	text-align: center;
@@ -161,42 +118,48 @@ body {
 	margin-right: 20px;
 }
 
-#frmAddUser {
-	display: flex;
-	flex-direction: row;
-}
-
-#addUserBox {
-	display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
 #frmLogin {
 	display: flex;
-	width: 300px;
-	height: 400px;
+	width: 350px;
 	margin:auto;
 	flex-direction: column;
-	background-color: #f1f1f1;
-	border: 2px solid;
+	background-color: white;
+	box-shadow: 0 0 15px #000;
+	border-radius: 10px;
 }
 
-.form-control {
-    height: 34px;
-    padding: 6px 12px;
-    font-size: 14px;
-    line-height: 1.42857143;
-    color: #555;
-    background-color: #fff;
-    background-image: none;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,0.075);
-    box-shadow: inset 0 1px 1px rgba(0,0,0,0.075);
-    -webkit-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
-    -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
-    transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+.logintxt {
+	display: flex;
+	justify-content: center;
+	width: 100%;
+	background-color: #f1f1f1;
+	font-size: 18px;
+	font-style: oblique;
+	padding: 10px 0px;
+	border-top-left-radius: 10px;
+	border-top-right-radius:10px;
+	border-bottom:1px solid;
+}
+
+.input-group {
+	display: flex;
+	padding: 10px 20px;
+}
+
+.loginInput {
+	width: 100%;
+	padding: 0px 20px;
+	height: 35px;
+	background-color:#f1f1f1;
+	border-radius: 10px;
+}
+
+.btnLoginFrm {
+	display: flex;
+	flex-wrap: wrap;
+	width: 50%;
+	justify-content: center;
+	height: 40px;
 }
 
 #newsletter {
@@ -204,31 +167,6 @@ body {
 	flex-direction: column;
 	align-items: center;
 }
-
-.input-group {
-	display: table;
-	position: relative;
-	border-collapse: separate;
-	margin-bottom: 5px;
-	margin-top: 15px;
-	border-radius: 4px;
-}
-
-.input-group-addon {
-	padding: 6px 12px;
-    font-size: 14px;
-    font-weight: normal;
-    line-height: 1;
-    color: #555;
-    text-align: center;
-    background-color: #eee;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-}
-
-.input-group-addon .input-group .form-control {
-    display: table-cell;
-    }
 
 #SignUpBox {
 	display: none; 
@@ -241,6 +179,8 @@ body {
     background-color: rgba(0,0,0,0.4); 
     padding-top: 60px;
 }
+
+
 
 #editProductBox {
 	display: none; 
@@ -271,10 +211,40 @@ body {
 
 #frmSignUpUser {
 	display: flex;
-    background-color: #fefefe;
+	flex-direction: column;
+    background-color: white;
     margin: 5% auto 15% auto; 
     border: 1px solid #888;
-    width: 80%;
+    width: 350px;
+    height: 400px;
+}
+
+#frmSignUpUser input {
+	height: 35px;
+	border-radius: 10px;
+	width: 80%;
+	margin: 10px auto;
+	padding: 10px 5px;
+	background-color:#f1f1f1;
+}
+
+#frmSignUpUser h3 {
+	display: flex;
+	justify-content: center;
+	padding: 10px;
+}
+
+#btnUserSU {
+	width:50%;
+	height: 30px;
+	margin: auto;
+}
+
+#closeSignUp {
+	width: 20px;
+	margin-left: 327px;
+    background-color: white;
+    border: none;
 }
 
 .close {
@@ -286,54 +256,58 @@ body {
     font-weight: bold;
 }
 
-
-form input {
-	margin-bottom: 15px;
-	height: 30px;
+#productList {
+	width: 100vw;
+	display: flex;
+	padding-top: 25px;
+	justify-content: space-around;
 }
 
 .item {
-	background-color:blue;
-	margin:10px;
-	border: 2px solid black;
+	width: 225px;
+	flex-wrap: wrap;
+	display: flex;
+	flex-direction: column;
+	border: 1px solid black;
+	align-items: center;
+	margin-top: 25px;
 }
 
 
-#userList {
+.itemInfo {
+	width: 65%;
+	display: flex;
+    justify-content: center;
+}
+
+.btnBuyProduct {
+	width: 50%;
+	margin-bottom: 10px;
+	background-color:green;
+	border-radius: 10px;
+}
+
+#frmContactUs {
+	flex-direction: column;
+}
+
+#frmContactUs input {
 	display: flex;
 	width: 100%;
-	border-bottom: 1px solid;
-	flex-direction: column;
-	padding-top:25px;
+	height: 30px;
+	padding-left: 10px;
+	border-radius: 10px;
+	margin-bottom: 15px;
+
 }
 
-.user{
-	display: flex;
-    width: 85%;
-    align-items: center;
-    justify-content: space-around;
-    border-bottom: 1px solid black;
-    padding: 5px 0px;
-}
-.user p {
-	display: flex;
-    align-items: center;
-    width: 15%;
-    height: 25px;
-    font-size: 16px;
-}
-
-.user h3 {
-	margin-right: 25px;
-}
-
-#addProductBox {
+#addProductBox, #addUserBox {
 	display: flex;
 	align-items: center;
 	flex-direction: column;
 }
 
-#productOverview {
+#productOverview, #userList {
 	display: flex;
 	flex-direction: column;
 }
@@ -343,7 +317,7 @@ form input {
 	height: 50px;
 }
 
-.productview {
+.productview, .user, .userView {
 	display: flex;
 	margin: auto;
 	width: 80%;
@@ -355,7 +329,7 @@ form input {
 
 }
 
-.productview p {
+.productview p, .user p {
 	display: flex;
 	align-items: center;
 	border-right: 1px solid;
@@ -366,9 +340,16 @@ form input {
 }
 
 .productview img{
-	height: 100px;
-	width: 100px;
+	height: 75px;
+	width: 75px;
+}
 
+#addProductBox h1 {
+	    margin: 25px 0px;
+}
+
+#frmAddProduct {
+	margin-bottom: 35px;
 }
 
 #productPage img {
@@ -378,21 +359,12 @@ form input {
 	height: 200px;
 }
 
-#productPage h3 {
-	text-align: center;
-	padding-top: 15px;
-}
-
 #profilePage h3 {
 	margin-top:50px;
 }
 
 .txtProfileInfo {
 	padding:25px 0px;
-}
-
-#frmSignUpUser {
-	flex-direction: column;
 }
 
 #profileImage {
