@@ -180,7 +180,11 @@ body {
     padding-top: 60px;
 }
 
-
+#frmUpdateUser {
+	display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 
 #editProductBox {
 	display: none; 
