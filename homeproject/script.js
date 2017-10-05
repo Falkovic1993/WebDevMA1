@@ -369,8 +369,22 @@ console.log("It's working!");
 				notifyMe();
 				var oSound = new Audio('sound/cash.mp3')
 				oSound.play();
-			};
+				var productId = e.target.getAttribute("data-buyId"); 
+
+				var ajax = new XMLHttpRequest();
+					ajax.onreadystatechange = function() {
+					if (this.readyState == 4 && this.status == 200) {
+						
+						//console.log(productId);
+						console.log(this.responseText);
+			}
+			}
+			ajax.open( "GET", "api-buy-product.php?productId="+productId, true);
+			ajax.send();
+		}
 		});
+
+		// 
 
 		// GOOGLE MAPS 
 		function initMap() {
