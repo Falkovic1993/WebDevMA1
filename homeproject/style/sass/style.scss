@@ -1,0 +1,21 @@
+@import "_vars";
+@import "_mixins";	
+
+* {
+	padding:0px;
+	margin:0px;
+	box-sizing: border-box; 
+}
+
+body {
+	width: $fullWidth;
+	height: $fullHeight;
+	overflow:hidden; 
+	font-family: $fontFamily;
+}
+
+.wrapper {
+	display: $displayFlex;
+	
+
+}

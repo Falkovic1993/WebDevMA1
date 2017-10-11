@@ -207,7 +207,6 @@
 	</div>
 
 	<!-- PRODUCTPAGE START HERE -->
-
 	<div id="productPage" class="page">
 		<div class="container" id="productList" <?php if (isset($_SESSION['loggedIn'])) {?> style="margin-left:15vw; width: 85vw;"<?php }  ?>>
 			
